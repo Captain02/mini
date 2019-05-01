@@ -1,0 +1,7 @@
+class errCode{
+
+}
+
+export {
+    errCode
+}

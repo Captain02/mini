@@ -1,0 +1,3 @@
+<view bindtap="onTap">
+    1111{{motto}}
+</view>
