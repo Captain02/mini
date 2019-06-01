@@ -5,7 +5,8 @@ const { routeMap } = require('./store.js');
  * @param {string} name 路由名
  */
 function name2path(name) {
-  return name.replace(/\./g, '/').replace(/\B([A-Z])/g, '_$1').toLowerCase();
+  // return name.replace(/\./g, '/').replace(/\B([A-Z])/g, '_$1').toLowerCase();
+  return name.replace(/\./g, '/');
 }
 
 /**

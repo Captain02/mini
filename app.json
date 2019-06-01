@@ -1,13 +1,33 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/test/index"
+    "pages/test/echarts/index",
+    "pages/bttc/contend/index",
+    "pages/bttc/hundredMass/index",
+    "pages/bttc/message/index",
+    "pages/bttc/my/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/bttc/hundredMass/index",
+        "text": "百团"
+      },
+      {
+        "pagePath": "pages/bttc/contend/index",
+        "text": "争鸣"
+      },
+      {
+        "pagePath": "pages/bttc/my/index",
+        "text": "我"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

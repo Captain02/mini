@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"争鸣",
+  "usingComponents": {
+    "u-contend":"../../../components/page/contend/index"
+  }
+}

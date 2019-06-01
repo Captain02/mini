@@ -1,0 +1,7 @@
+<view>data: {{a}}</view>
+<view>computed: {{b}}</view>
+<view>{{e}}</view>
+
+<view class="cu-tag" bindtap="onTap">
+    你好
+</view>
