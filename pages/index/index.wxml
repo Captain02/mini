@@ -1,3 +1,10 @@
-<view bindtap="onTap">
+<!-- <view bindtap="onTap">
     1111{{motto}}
+     <button class="cu-btn round">圆角</button>
+</view> -->
+<view class="top-bar">
+  <view class="top-bar-item" wx:for="{{topTar}}" wx:for-index="idx" 
+    data-nowid="{{idx}}" bindtap='tarClick'>
+    <text class="{{nowIdx == idx ? 'active': ''}}">{{item}}</text>
+  </view>
 </view>

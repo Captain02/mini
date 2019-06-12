@@ -1,12 +1,45 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/test/index"
+    "pages/BaiTuan/BaiTuan",
+    "pages/Contend/Contend",
+    "pages/user/user"
   ],
+  "tabBar": {
+    "color": "#bfbfbf",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#d81e06",
+    "list": [
+      {
+        "selectedIconPath": "assets/images/home-sel.png",
+        "iconPath": "assets/images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "assets/images/quan-sel.png",
+        "iconPath": "assets/images/quan.png",
+        "pagePath": "pages/BaiTuan/BaiTuan",
+        "text": "百团"
+      },
+      {
+        "selectedIconPath": "assets/images/quan-sel.png",
+        "iconPath": "assets/images/quan.png",
+        "pagePath": "pages/Contend/Contend",
+        "text": "争鸣"
+      },
+      {
+        "selectedIconPath": "assets/images/person-sel.png",
+        "iconPath": "assets/images/person.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "首页                                                 ",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
