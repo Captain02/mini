@@ -1,0 +1,69 @@
+/* components/component/top-tips/index.wxss */
+.topTips{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5000;
+    opacity: 0;
+    outline: 0;
+    -ms-transform: scale(1);
+    transform: translate3d(0, -100%, 0);
+    backface-visibility: hidden;
+    transition: all 0s ease-in-out 0s;
+    pointer-events: none;
+}
+
+.topTips.show {
+    opacity: 1;
+    transition-duration: 0.3s;
+    transform: translate3d(0, 0, 0);
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: auto;
+}
+
+.topTips.hide {
+    opacity: 1;
+    transition-duration: 0.3s;
+    transform: translate3d(0, -100%, 0);
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: auto;
+}
+
+.topTipsContent {
+    width: 100%;
+    min-height: 92rpx;
+    flex-wrap: nowrap;
+}
+
+.topTipsContentMessage{
+    flex-basis: 100%;
+    white-space:pre-line;
+    line-height: 42rpx;
+}
+.topTipsContentMessageContent{
+    width: 100%;
+    height: 100%;
+}
+.topTipsContentMessageContent.messagePadding{
+    padding-left: 82rpx;
+}
+.toptipsImage {
+    position: relative;
+    top: 1rpx;
+    width: 32rpx;
+    height: 32rpx;
+    flex: none;
+    cursor: pointer;
+}
+.toptipsImageHover{
+    background-color: rgba( 0,0,0,0.1);
+}
+
+.toptipsIcon {
+    width: 32rpx;
+    height: 32rpx;
+    flex: none;
+}

@@ -1,0 +1,32 @@
+/* components/component/input/index.wxss */
+.comp_input{
+    min-width: 100%;
+    min-height: 89rpx;
+}
+
+.comp_input_content{
+    position: relative;
+    /*top: 2rpx;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.comp_input_content>input{
+    padding-left: 10rpx;
+    line-height: 40rpx;
+    width: 100%;
+}
+
+.cancel_btn{
+    width: 36rpx;
+    height: 36rpx;
+}
+.comp_input_cancel{
+    min-height: 89rpx;
+    min-width: 89rpx;
+}
+.slot{
+    min-height: 89rpx;
+    flex: none;
+}

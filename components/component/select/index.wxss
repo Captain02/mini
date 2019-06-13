@@ -1,0 +1,4 @@
+/* components/component/select/index.wxss */
+.pickerViewColumn{
+    line-height: 50rpx;
+}

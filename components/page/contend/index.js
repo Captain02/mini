@@ -1,5 +1,5 @@
 // components/page/contend/index.js
-import Component from '../../../helpers/wxComponent'
+import Component from '../../helpers/wxComponent.js'
 
 Component({
 

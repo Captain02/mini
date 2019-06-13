@@ -1,0 +1,25 @@
+<view class="cu-modal bottom-modal {{show ? 'show' : ''}}"
+      bindtap="cancel">
+    <view class="cu-dialog" catchtap="catchTap">
+        <view class="cu-bar bg-white solid-bottom shadow">
+            <view class="action text-xl" bindtap="cancel">取消</view>
+            <view class="action text-xl text-green padding-right" bindtap="onConfirm">确定</view>
+        </view>
+        <picker-view
+                indicator-style="height: 50px;"
+                style="width: 100%; height: 240px;"
+                bindchange="onChange"
+                bindpickstart="bindpickstart"
+                bindpickend="bindpickend"
+        >
+            <block wx:for="{{_options}}" wx:key wx:for-item="column">
+                <picker-view-column>
+                    <block wx:for="{{column}}" wx:key>
+                        <view class="pickerViewColumn flex justify-center align-center" >{{item.selectValue}}</view>
+                    </block>
+                </picker-view-column>
+            </block>
+        </picker-view>
+    </view>
+</view>
+

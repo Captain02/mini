@@ -1,3 +1,4 @@
-<view id="test" bindtap="onTap">
-    1111{{motto}}
+<view class="index bg-white flex justify-center align-center " bindtap="onTap">
+    此处应该有一张图片
 </view>
+<top-tips/>

@@ -1,0 +1,6 @@
+<block wx:if="{{loading}}">
+    <view class="cu-load loading" role="" aria-label=""/>
+</block>
+<block wx:if="{{!loading && showNoMore && nextPage==0 }}">
+    <view class="cu-load over" role="" aria-label=""/>
+</block>

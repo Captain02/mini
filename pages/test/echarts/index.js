@@ -1,5 +1,5 @@
 // pages/test/echarts/index.js
-import Page from '../../../helpers/wxPage.js'
+import Page from '../../../components/helpers/wxPage.js'
 
 import * as echarts from '../../../components/ec-canvas/echarts';
 

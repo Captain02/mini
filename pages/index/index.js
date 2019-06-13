@@ -1,35 +1,28 @@
 //index.js
-import Page from '../../helpers/wxPage.js'
+import Page from '../../components/helpers/wxPage.js'
 
 Page({
     data: {},
     onLoad: function (options) {
-        this.$router.push({
-            name: "bttc.contend",
-            type:"tab"
-        })
-        // const query = wx.createSelectorQuery()
-        // query.select('#test').boundingClientRect((res) => {
-        //     console.log(res)
+        // this.message({
+        //     message:"测试",
+        //     duration:10 * 1000
         // })
-        // query.exec()
-        // let data = this.$router.extract(options)
-        // console.log(data)
-        // console.log(options.c)
-        // console.log(options.d)
-        // console.log(this.event)
-        // this.$event.on('DataChanged', this, function(data) {
-        //     this.setData({
-        //         motto: data
-        //     });
+        this.$api.login({
+            username:"admin",
+            password:"admin"
+        })
+        // this.$api.notToken()
+        // this.$api.userInfo()
+        // this.$api.corporationGetListPage({})
+        // this.$api.logout({
+        //     username:"admin",
         // })
     },
     onTap() {
-        this.$router.push({
-            name: "test"
-        })
+
     },
     onUnload: function () {
-        this.$event.remove('DataChanged', this);
+
     }
 })

@@ -1,0 +1,26 @@
+<block wx:for="{{STATE.message}}" wx:key>
+    <block wx:if="{{item.exist}}">
+        <cover-view class="topTips flex {{ item.show ? 'show' : 'hide'}} " bindtap="onTap" style="z-index:{{zIndex+index}};">
+            <block wx:if="{{item.slot.length == 0}}">
+                <cover-view class="topTipsContent flex justify-between align-center light bg-{{item.bgColor}} ">
+                    <cover-view class="topTipsContentMessage {{item.showClose?'padding-tb-sm padding-left-sm':'padding-sm'}}">
+                        <cover-view class="topTipsContentMessageContent flex {{item.center? 'justify-center' : ''}}{{item.center && item.showClose ? 'messagePadding' : ''}}"
+                        style="{{item.center ? 'text-align: center;':''}}">
+                            <cover-image wx:if="{{item.center && item.icon}}" class="toptipsIcon padding-lr-xs" src="/assets/toptip/icon_toptip_{{item.type}}.png"
+                            />{{item.message}}</cover-view>
+                    </cover-view>
+                    <block wx:if="{{item.showClose}}">
+                        <cover-image class="toptipsImage padding-lr padding-tb margin-right-xs"
+                                     hover-class="toptipsImageHover"
+                                     src="/assets/icon/icon_cancel_toptips.png"
+                             data-index="{{index}}"
+                            catchtap="closeTap"/>
+                    </block>
+                </cover-view>
+            </block>
+            <block wx:else>
+                <slot name="{{item.slot}}"></slot>
+            </block>
+        </cover-view>
+    </block>
+</block>

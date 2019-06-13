@@ -1,4 +1,5 @@
 // components/page/hundredMass/index.js
+import Component from '../../helpers/wxComponent.js'
 Component({
   /**
    * 组件的属性列表

@@ -1,0 +1,43 @@
+<view class="comp_input flex justify-center align-center radius {{borderBottom?'solid-bottom':''}} ">
+    <view class="slot flex justify-center align-center">
+        <!--右边插槽-->
+        <slot name="left"></slot>
+    </view>
+
+    <view class="comp_input_content">
+        <input  value="{{ inputValue }}"
+                type="{{ type }}"
+                password="{{ password }}"
+                placeholder="{{ placeholder }}"
+                placeholder-style="{{ placeholderStyle }}"
+                placeholder-class="{{ placeholderClass }}"
+                disabled="{{ disabled }}"
+                maxlength="{{ maxlength }}"
+                cursor-spacing="{{ cursorSpacing }}"
+                focus="{{ focus }}"
+                confirm-type="{{ confirmType }}"
+                confirm-hold="{{ confirmHold }}"
+                cursor="{{ cursor }}"
+                selection-start="{{ selectionStart }}"
+                selection-end="{{ selectionEnd }}"
+                adjust-position="{{ adjustPosition }}"
+                bindinput="onChange"
+                bindfocus="onFocus"
+                bindblur="onBlur"
+                bindconfirm="onConfirm"
+                style="text-align:{{textAlign}};"/>
+        <!--取消按钮-->
+        <block wx:if="{{showCancelBtn && inputValue.length>0}}">
+            <view class="comp_input_cancel flex justify-center align-center"
+                  hover-class="cancelActive"
+                  bindtap="cancelInput">
+                <image class="cancel_btn" src="/assets/icon/icon_cancel.png"/>
+            </view>
+        </block>
+    </view>
+
+    <view class="slot flex justify-center align-center">
+        <!--左边插槽-->
+        <slot name="right"></slot>
+    </view>
+</view>
