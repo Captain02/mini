@@ -1,10 +1,19 @@
-<!-- <view bindtap="onTap">
-    1111{{motto}}
-     <button class="cu-btn round">圆角</button>
-</view> -->
+<!--引入card组件-->
+<import src="../../components/pushCard/pushCard.wxml"/>
+<!--引入新闻组件-->
+<import src="../../components/news/news.wxml"/>
+
 <view class="top-bar">
   <view class="top-bar-item" wx:for="{{topTar}}" wx:for-index="idx" 
-    data-nowid="{{idx}}" bindtap='tarClick'>
+    data-nowid="{{idx}}" bindtap='tarClick' wx:key="item.id">
     <text class="{{nowIdx == idx ? 'active': ''}}">{{item}}</text>
   </view>
+</view>
+
+<view wx:if="{{nowIdx === 0 ? 1:0}}">
+  <template is="indexCard" ></template>
+</view>
+
+<view class='new-con'wx:if="{{nowIdx === 0 ? 0:1}}">
+  <template is="news"></template>
 </view>

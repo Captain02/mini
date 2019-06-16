@@ -3,15 +3,11 @@ import Page from '../../helpers/wxPage.js'
 
 Page({
   data: {
-    nowIdx: "0",
+    nowIdx: 0,
     topTar: ['用户发布','活动新闻']
   },
   onLoad: function(options) {
       let data = this.router.extract(options)
-      console.log(data)
-      console.log(options.c)
-      console.log(options.d)
-      console.log(this.event)
       this.event.on('DataChanged', this, function(data) {
           this.setData({
               motto: data
@@ -26,12 +22,17 @@ Page({
   onUnload: function() {
       this.event.remove('DataChanged', this);
   },
+  // 切换tab
   tarClick(e) {
-    console.log(e)
     let id = e.currentTarget.dataset.nowid;
-    console.log(id)
     this.setData({
       nowIdx: id
+    })
+  },
+  // 进入用户发布信息页面
+  goUserInfo: function() {
+    wx.navigateTo({
+      url: '/pages/user/userInfo/userInfo',
     })
   }
 })

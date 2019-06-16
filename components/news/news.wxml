@@ -1,0 +1,17 @@
+<template name="news">
+  <view class=" radius shadow shadow-lg bg-white margin-top news-item">
+    <view class='news-item-img'>
+      <image src='http://img4.imgtn.bdimg.com/it/u=1984846109,417900575&fm=26&gp=0.jpg'></image>
+    </view>
+    <view class='news-item-right'>
+      <view class='news-item-right-topcon'>
+        <text class='news-item-right-top1'>十个歌手比赛圆满成功</text>
+        <text  class='news-item-right-top2'>德州学院学生会文体部</text>
+      </view>
+      <view class='news-item-right-bottom'>
+          <text class="cuIcon-likefill margin-lr-xs">20</text> 
+          <text class="cuIcon-roundleftfill-copy margin-lr-xs">55分钟前</text> 
+      </view>
+    </view>
+  </view>
+  </template>

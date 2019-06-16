@@ -1299,7 +1299,8 @@ button.icon.lg {
 .cu-list.menu-avatar>.cu-item .content>view:first-child {
 	font-size: 30rpx;
 	display: flex;
-	align-items: center
+	align-items: center;
+  justify-content: space-between;
 }
 
 .cu-list.menu-avatar>.cu-item .content .cu-tag.sm {
