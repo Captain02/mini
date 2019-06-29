@@ -1,26 +1,25 @@
 //index.js
-import Page from '../../helpers/wxPage.js'
-
+const app = getApp();
 Page({
   data: {
     nowIdx: 0,
-    topTar: ['用户发布','活动新闻']
+    topTar: ['用户发布','活动新闻'],
+    listNews: [],
+    imgUrl: app.indexApi._baseUrl
   },
   onLoad: function(options) {
-      let data = this.router.extract(options)
-      this.event.on('DataChanged', this, function(data) {
-          this.setData({
-              motto: data
-          });
-      })
+    const that = this;
+    that.loadNewsList()
   },
-  onTap(){
-    this.router.push({
-        name:"test"
+  // 加载新闻列表
+  loadNewsList: function() {
+    app.indexApi.getNews().then(res => {
+      if (res.data.length > 0) {
+        this.setData({
+          listNews: res.data
+        })
+      }
     })
-  },
-  onUnload: function() {
-      this.event.remove('DataChanged', this);
   },
   // 切换tab
   tarClick(e) {
@@ -30,7 +29,7 @@ Page({
     })
   },
   // 进入用户发布信息页面
-  goUserInfo: function() {
+  goUserInfo() {
     wx.navigateTo({
       url: '/pages/user/userInfo/userInfo',
     })

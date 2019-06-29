@@ -1,7 +1,0 @@
-class errCode{
-
-}
-
-export {
-    errCode
-}

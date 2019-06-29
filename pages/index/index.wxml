@@ -15,5 +15,5 @@
 </view>
 
 <view class='new-con'wx:if="{{nowIdx === 0 ? 0:1}}">
-  <template is="news"></template>
+  <template is="news" wx:for="{{listNews}}" wx:key="idx" data="{{...item,imgUrl}}"></template>
 </view>
