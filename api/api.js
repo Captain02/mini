@@ -2,6 +2,7 @@ import request from './http.js'
 class agriknow {
   constructor() {
     this._baseUrl = 'http://140.143.201.244:8082/HBOFRONT'
+    this.ImgUrl = 'http://140.143.201.244:82'
     this._defaultHeader = { 'data-tupe': 'application/json' }
     this._request = new request
     this._request.setErrorHandler(this.errorHander)

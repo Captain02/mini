@@ -5,7 +5,7 @@ Page({
     nowIdx: 0,
     topTar: ['用户发布','活动新闻'],
     listNews: [],
-    imgUrl: app.indexApi._baseUrl
+    imgUrl: app.indexApi.ImgUrl
   },
   onLoad: function(options) {
     const that = this;
