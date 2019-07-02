@@ -1,5 +1,5 @@
 <template name="news" >
-  <view class=" radius shadow shadow-lg bg-white margin-top news-item">
+  <view bindtap="godetail" class=" radius shadow shadow-lg bg-white margin-top news-item">
     <view class='news-item-img'>
       <image src='{{imgUrl+filepath}}'></image>
     </view>

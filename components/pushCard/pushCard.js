@@ -1,4 +1,5 @@
 Page({
+
   /**
    * 页面的初始数据
    */
@@ -12,5 +13,9 @@ Page({
   onLoad: function (options) {
     
   },
-
+  gocard() {
+    wx.navigateTo({
+      url: '../../index/pushdetail/pushdetail',
+    })
+  }
 })

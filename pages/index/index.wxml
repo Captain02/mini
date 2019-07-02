@@ -11,7 +11,7 @@
 </view>
 
 <view wx:if="{{nowIdx === 0 ? 1:0}}">
-  <template is="indexCard" ></template>
+  <template is="indexCard"></template>
 </view>
 
 <view class='new-con'wx:if="{{nowIdx === 0 ? 0:1}}">

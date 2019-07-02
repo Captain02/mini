@@ -1,5 +1,5 @@
 <template name="indexCard">
-  <view class="cu-card case isCard">
+  <view class="cu-card case isCard" bindtap="gocard">
     <view class="cu-item shadow">
       <view class="image" >
         <image src="http://imgsrc.baidu.com/imgad/pic/item/b21c8701a18b87d603df78320c0828381f30fd7a.jpg" mode="widthFix"></image>

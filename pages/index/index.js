@@ -33,5 +33,15 @@ Page({
     wx.navigateTo({
       url: '/pages/user/userInfo/userInfo',
     })
+  },
+  godetail() {
+    wx.navigateTo({
+      url: './newsdetail/newsdetail',
+    })
+  },
+  gocard() {
+    wx.navigateTo({
+      url: './pushdetail/pushdetail',
+    })
   }
 })

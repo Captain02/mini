@@ -4,7 +4,9 @@
     "pages/BaiTuan/BaiTuan",
     "pages/Contend/Contend",
     "pages/user/user",
-    "pages/user/userInfo/userInfo"
+    "pages/user/userInfo/userInfo",
+    "pages/index/newsdetail/newsdetail",
+    "pages/index/pushdetail/pushdetail"
   ],
   "tabBar": {
     "color": "#bfbfbf",
