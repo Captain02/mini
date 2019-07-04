@@ -22,20 +22,21 @@ class agriknow {
     let data = { currPage: currPage, pageSize: pageSize }
     return this._request.getRequest(this._baseUrl + '/sys/news/list', data).then(res => res.data)
   }
-
-  /**
-   * 获取新闻评论
-   */
-  getNewsDetail(topicid, currPage = 1, pageSize = 10) {
-    let data = { topicid: topicid, currPage: currPage, pageSize: pageSize }
-    return this._request.getRequest(this._baseUrl + '/sys/news/getNewsReplice', data).then(res => res.data)
-  }
   /**
    * 获取新闻详情
    */
-  getNewsComment(id) {
+  getNewsDetail(id) {
     let data = { id: id }
     return this._request.getRequest(this._baseUrl + '/sys/news/getNewsDetail', data).then(res => res.data)
   }
+  /**
+   * 获取新闻评论
+   */
+  getNewsComment(topicid, currPage = 0, pageSize = 10) {
+    let data = { topicid: topicid, currPage: currPage, pageSize: pageSize }
+    return this._request.getRequest(this._baseUrl + '/sys/news/getNewsReplice', data).then(res => res.data)
+  }
+
+
 }
 export default agriknow

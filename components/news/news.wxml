@@ -1,16 +1,16 @@
-<template name="news" >
-  <view bindtap="godetail" class=" radius shadow shadow-lg bg-white margin-top news-item">
+<template name="news">
+  <view bindtap="godetail" data-newsid="{{id}}" class=" radius shadow shadow-lg bg-white margin-top news-item">
     <view class='news-item-img'>
       <image src='{{imgUrl+filepath}}'></image>
     </view>
     <view class='news-item-right'>
       <view class='news-item-right-topcon'>
         <text class='news-item-right-top1'>{{title}}</text>
-        <text  class='news-item-right-top2'>德州学院学生会文体部</text>
+        <text class='news-item-right-top2'>{{corname}}-{{name}}</text>
       </view>
       <view class='news-item-right-bottom'>
-          <text class="cuIcon-likefill margin-lr-xs">20</text> 
-          <text class="cuIcon-roundleftfill-copy margin-lr-xs">55分钟前</text> 
+        <text class="cuIcon-likefill margin-lr-xs">20</text>
+        <text class="cuIcon-roundleftfill-copy margin-lr-xs">55分钟前</text>
       </view>
     </view>
   </view>

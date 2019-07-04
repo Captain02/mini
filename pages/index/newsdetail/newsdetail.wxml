@@ -1,19 +1,19 @@
 <view class="detail-con">
-  <view class="detail-top">十大歌手比赛圆满成功</view>
+  <view class="detail-top">{{newsPage.title}}</view>
   <view class="detail-all">
     <view class="detail-img">
-      <image src="../../../assets/images/001.jpg"></image>
+      <image src="{{imgUrl}}{{userInfo.headpath}}"></image>
     </view>
     <view class="detail-right">
-      <text>德州学院学生会文体部</text>
+      <text>{{newsPage.name}}</text>
       <text style="font-size:24rpx;">2019-05-03</text>
     </view>
   </view>
   <view class="detail-banner">
-    <image src="../../../assets/images/001.jpg"></image>
+    <image src="{{imgUrl}}{{newsPage.filepath}}"></image>
   </view>
   <view class="detail-text">
-    <view>我是内容我是内容我是内容我是内容我是内容我是内容我是内容</view>
+    <view>{{newsPage.content}}</view>
     <view style="float:right">点赞</view>
   </view>
 

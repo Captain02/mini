@@ -34,9 +34,11 @@ Page({
       url: '/pages/user/userInfo/userInfo',
     })
   },
-  godetail() {
+  godetail(e) {
+    console.log(e)
+    let newsid = e.currentTarget.dataset.newsid;
     wx.navigateTo({
-      url: './newsdetail/newsdetail',
+      url: './newsdetail/newsdetail?id=' + newsid,
     })
   },
   gocard() {
