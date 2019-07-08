@@ -10,7 +10,7 @@
       </view>
       <view class='news-item-right-bottom'>
         <text class="cuIcon-likefill margin-lr-xs">20</text>
-        <text class="cuIcon-roundleftfill-copy margin-lr-xs">55分钟前</text>
+        <text class="cuIcon-roundleftfill-copy margin-lr-xs">{{createtime}}</text>
       </view>
     </view>
   </view>

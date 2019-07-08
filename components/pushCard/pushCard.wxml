@@ -1,24 +1,24 @@
 <template name="indexCard">
-  <view class="cu-card case isCard" bindtap="gocard">
+  <view class="cu-card case isCard" data-userid="{{id}}" bindtap="gocard">
     <view class="cu-item shadow">
       <view class="image" >
-        <image src="http://imgsrc.baidu.com/imgad/pic/item/b21c8701a18b87d603df78320c0828381f30fd7a.jpg" mode="widthFix"></image>
+        <image src="{{filepath}}" mode="widthFix"></image>
         <view class="cu-bar bg-shadeBottom">
-          <text class="text-cut">人所缺乏的不是才干而是志向，不是成功的能力而是勤劳的意志。</text>
+          <text class="text-cut">{{content}}</text>
         </view>
       </view>
       <view class="cu-list menu-avatar">
         <view class="cu-item">
-          <view class="cu-avatar round lg" bindtap='goUserInfo' style="background-image:url(http://img0.imgtn.bdimg.com/it/u=1735455339,1731213399&fm=26&gp=0.jpg);"></view>
+          <view class="cu-avatar round lg" bindtap='goUserInfo' style="background-image:url({{imgUrl}}{{userinfo[0].headpath}});"></view>
           <view class="content flex-sub">
-            <view class="text-grey">紫夜
-              <text>4小时前</text>
+            <view class="text-grey">{{userinfo[0].name}}
+              <text>{{createtime}}</text>
             </view>
             <view class="text-gray text-sm flex justify-between">
-              信息管理学院
+              {{userinfo[0].college}}
               <view class="text-gray text-sm">
-                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
-                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{likes[0].num}}
+                <text class="cuIcon-messagefill margin-lr-xs"></text> {{replesnum[0].num}}
               </view>
             </view>
           </view>

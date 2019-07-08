@@ -1,17 +1,29 @@
+const app = getApp();
+import { getDateTimeStamp, getDateDiff } from "../../../utils/mp-router/time.js";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    imgUrl: app.indexApi.ImgUrl,
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    app.indexApi.userDetailed(options.id).then(res => {
+      if (res) {
+        res.data.createtime = getDateTimeStamp(res.data.createtime);
+        res.data.createtime = getDateDiff(res.data.createtime);
+        this.setData({
+          userInfo: res.data
+        })
+      }
+    })
   },
 
   /**

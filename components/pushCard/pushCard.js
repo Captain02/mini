@@ -13,9 +13,4 @@ Page({
   onLoad: function (options) {
     
   },
-  gocard() {
-    wx.navigateTo({
-      url: '../../index/pushdetail/pushdetail',
-    })
-  }
 })

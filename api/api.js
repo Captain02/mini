@@ -30,13 +30,72 @@ class agriknow {
     return this._request.getRequest(this._baseUrl + '/sys/news/getNewsDetail', data).then(res => res.data)
   }
   /**
-   * 获取新闻评论
+   * 新闻评论列表
    */
   getNewsComment(topicid, currPage = 0, pageSize = 10) {
     let data = { topicid: topicid, currPage: currPage, pageSize: pageSize }
     return this._request.getRequest(this._baseUrl + '/sys/news/getNewsReplice', data).then(res => res.data)
   }
+  // 新闻点赞
+  clickGood(type, userid, topicid) {
+    let data = {
+      type, 
+      userid,
+      topicid
+     }
+    return this._request.postRequest(this._baseUrl + '/sys/news/likeTopic', data).then(res => res.data)
+  }
+
+ 
+ // 新闻评论点赞
+ /**
+  * type 1 点赞 0 取消
+  * 用户id
+  */
+  clickNewsGood(type, userid, repliesid) {
+    let data = {
+      type,
+      userid,
+      topicid
+    }
+    return this._request.postRequest(this._baseUrl + '/sys/news/likereplies', data).then(res => res.data)
+  }
 
 
+  // 发表新闻评论
+  /**
+   * 评论人
+   * 父评论（第一层用0）
+   * 主题id
+   * 回复内容
+   * 被回复人id
+   */
+  pushComment(userid, parentid, topicid, repliescontent, repliesuserid) {
+    let data = {
+      userid,
+      parentid,
+      topicid,
+      repliescontent,
+      repliesuserid
+    }
+    return this._request.postRequest(this._baseUrl + ' /sys/news/replies', data).then(res => res.data)
+  }
+  
+  /***************用户发布*************** */
+  // 用户发布列表
+  userPush(pageSize, currPage) {
+    let data = {
+      pageSize,
+      currPage
+    }
+    return this._request.getRequest(this._baseUrl + '/sys/psersion/persionTopic', data).then(res => res.data)
+  }
+  // 用户发布详情
+  userDetailed(topicid) {
+    let data = {
+      topicid
+    }
+    return this._request.getRequest(this._baseUrl + '/sys/psersion/getDetailed', data).then(res => res.data)
+  }
 }
 export default agriknow

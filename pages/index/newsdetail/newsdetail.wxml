@@ -14,10 +14,8 @@
   </view>
   <view class="detail-text">
     <view>{{newsPage.content}}</view>
-    <view style="float:right">点赞</view>
+    <view style="float:right" bindtap="good">点赞</view>
   </view>
-
-
 
 
   <view class="ping-all">

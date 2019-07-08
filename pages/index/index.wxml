@@ -11,7 +11,7 @@
 </view>
 
 <view wx:if="{{nowIdx === 0 ? 1:0}}">
-  <template is="indexCard"  bindtap="goCard"> 
+  <template is="indexCard" wx:for="{{pushlist}}" wx:key="idx" data="{{...item,imgUrl}}" bindtap="gocard"> 
   </template>
 </view>
 
