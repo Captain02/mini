@@ -1,0 +1,113 @@
+<template name="activitylist">
+  <!-- <view bindtap="goActivitydetail"  class=" radius shadow shadow-lg bg-white margin-top act-item act-item-con">
+    <view class="act-top">
+      <view class="act-top-img">
+        <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"></image>
+      </view>
+      <text class="act-top-name">紫夜</text>
+      <view class="act-top-mi">
+        <text>15m</text>
+      </view>
+    </view>
+    <view class="">
+      <view>
+        <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"></image>
+      </view>
+      <view class="act-bot"> 
+        <view>我们会越来越好滴我们会越来越好滴...</view>
+        <view>
+          <text class="cuIcon-likefill lg text-gray"></text>    80
+          <text class="cuIcon-commentfill lg text-gray"></text>    80
+        </view>
+      </view>
+    </view>
+  </view>
+    <view bindtap="goActivitydetail"  class=" radius shadow shadow-lg bg-white margin-top act-item">
+    <view class="act-top">
+      <view class="act-top-img">
+        <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"></image>
+      </view>
+      <text class="act-top-name">紫夜</text>
+      <view class="act-top-mi">
+        <text>15m</text>
+      </view>
+    </view>
+    <view class="act-item-con">
+      <image src="../../assets/images/004.jpg"></image>
+      <view class="act-bot"> 
+        <view>我们会越来越好滴我们会越来越好滴...</view>
+        <view>
+          <text class="cuIcon-likefill lg text-gray"></text>    80
+          <text class="cuIcon-commentfill lg text-gray"></text>    80
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class="cu-list menu-avatar">
+    <view class="cu-item grayscale">
+      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81007.jpg);"></view>
+      <view class="content">
+        <view>
+          <text class="text-cut">学生处通知</text>
+          <view class="cu-tag round bg-orange sm">开始纳新了...</view>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut"> 同学们好好准备</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">22:20</view>
+        <view class="cu-tag round bg-red sm">5</view>
+      </view>
+    </view>
+        <view class="cu-item grayscale">
+      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81007.jpg);"></view>
+      <view class="content">
+        <view>
+          <text class="text-cut">学生处通知</text>
+          <view class="cu-tag round bg-orange sm">开始纳新了...</view>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut"> 同学们好好准备</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">22:20</view>
+        <view class="cu-tag round bg-red sm">5</view>
+      </view>
+    </view>
+        <view class="cu-item grayscale">
+      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81007.jpg);"></view>
+      <view class="content">
+        <view>
+          <text class="text-cut">学生处通知</text>
+          <view class="cu-tag round bg-orange sm">开始纳新了...</view>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut"> 同学们好好准备</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">22:20</view>
+        <view class="cu-tag round bg-red sm">5</view>
+      </view>
+    </view>
+        <view class="cu-item grayscale">
+      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81007.jpg);"></view>
+      <view class="content">
+        <view>
+          <text class="text-cut">学生处通知</text>
+          <view class="cu-tag round bg-orange sm">开始纳新了...</view>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut"> 同学们好好准备</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">22:20</view>
+        <view class="cu-tag round bg-red sm">5</view>
+      </view>
+    </view>
+  </view>
+  
+</template>

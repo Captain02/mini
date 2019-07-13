@@ -1,1 +1,1 @@
-/* pages/BaiTuan/BaiTuan.wxss */
+@import "../index/index.wxss";

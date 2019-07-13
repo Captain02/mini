@@ -1,0 +1,39 @@
+.act-item {
+  width: 48%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.act-top {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  font-size: 31rpx;
+  color: #353535;
+  padding: 0 20rpx;
+}
+.act-top-name {
+  margin-left: 30rpx;
+}
+.act-top-mi {
+  margin-left: 80rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+.act-top-img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+.act-top-img image {
+  width: 100%;
+  height: 100%;
+}
+.act-bot {
+  width: 100%;
+  height: auto;
+  padding: 16rpx 20rpx;
+  line-height: 40rpx;
+}

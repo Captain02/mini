@@ -1,1 +1,6 @@
-/* pages/Contend/Contend.wxss */
+@import "../../components/activity/activity.wxss";
+/* .act-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+} */

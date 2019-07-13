@@ -4,6 +4,7 @@
     "pages/BaiTuan/BaiTuan",
     "pages/Contend/Contend",
     "pages/user/user",
+    "pages/add/add",
     "pages/user/userInfo/userInfo",
     "pages/index/newsdetail/newsdetail",
     "pages/index/pushdetail/pushdetail"
@@ -24,6 +25,12 @@
         "iconPath": "assets/images/quan.png",
         "pagePath": "pages/BaiTuan/BaiTuan",
         "text": "百团"
+      },
+      {
+        "selectedIconPath": "assets/images/quan-sel.png",
+        "iconPath": "assets/images/quan.png",
+        "pagePath": "pages/add/add",
+        "text": "发布"
       },
       {
         "selectedIconPath": "assets/images/quan-sel.png",

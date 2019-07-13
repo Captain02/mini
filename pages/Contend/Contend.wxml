@@ -1,2 +1,6 @@
-<!--pages/Contend/Contend.wxml-->
-<text>pages/Contend/Contend.wxml</text>
+<!--引入活动组件-->
+<import src="../../components/activity/activity.wxml"/>
+
+<view class='act-con '>
+  <template is="activitylist"></template>
+</view>
