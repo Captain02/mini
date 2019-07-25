@@ -5,6 +5,7 @@
     "pages/Contend/Contend",
     "pages/user/user",
     "pages/add/add",
+    "pages/login/login",
     "pages/user/userInfo/userInfo",
     "pages/index/newsdetail/newsdetail",
     "pages/index/pushdetail/pushdetail"

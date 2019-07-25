@@ -1,6 +1,15 @@
 <!--引入活动组件-->
 <import src="../../components/activity/activity.wxml"/>
 
-<view class='act-con '>
-  <template is="activitylist"></template>
+<!--活动信息-->
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange "></text> 活动信息
+  </view>
+</view>
+<view class='act-con' style="margin-top:20rpx;">
+  <view class="cu-list menu-avatar">
+    <template is="activitylist" wx:for="{{actCon}}" wx:key="idx" data="{{...item,imgUrl}}"> 
+  </template>
+  </view>
 </view>

@@ -5,13 +5,13 @@
 <!--引入活动组件-->
 <import src="../../components/activity/activity.wxml"/>
 
-
+<!-- 
 <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
     <input type="text" placeholder="您想要找点什么..." confirm-type="search" bindinput="searchIcon"></input>
   </view>
-</view>
+</view> -->
 
 <!-- <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
@@ -24,8 +24,7 @@
 
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{swiperList}}" wx:key>
-    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    <image src="{{item.url}}" mode="aspectFill" ></image>
   </swiper-item>
 </swiper>
 
@@ -47,7 +46,10 @@
   </view>
 </view>
 <view class='act-con' style="margin-top:20rpx;">
-  <template is="activitylist"></template>
+  <view class="cu-list menu-avatar">
+    <template is="activitylist" wx:for="{{actCon}}" wx:key="idx" data="{{...item,imgUrl}}"> 
+  </template>
+  </view>
 </view>
 
 

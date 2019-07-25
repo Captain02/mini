@@ -6,26 +6,11 @@ Page({
     nowIdx: 0,
     topTar: ['校园圈','校园新闻'],
     listNews: [],
+    actCon: [],
     pushlist: [],
     imgUrl: app.indexApi.ImgUrl,
     cardCur: 0,
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563040353902&di=e19dcb234d885660ea2788d678f0242a&imgtype=0&src=http%3A%2F%2Fimg2.ph.126.net%2FM7HHGCYwSh9HSbjALBJKlg%3D%3D%2F1147010530113851225.jpg'
-    }, {
-      id: 1,
-      type: 'image',
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563040353902&di=e19dcb234d885660ea2788d678f0242a&imgtype=0&src=http%3A%2F%2Fimg2.ph.126.net%2FM7HHGCYwSh9HSbjALBJKlg%3D%3D%2F1147010530113851225.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563040353902&di=e19dcb234d885660ea2788d678f0242a&imgtype=0&src=http%3A%2F%2Fimg2.ph.126.net%2FM7HHGCYwSh9HSbjALBJKlg%3D%3D%2F1147010530113851225.jpg'
-    }, {
-      id: 3,
-      type: 'image',
-        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563040353902&di=e19dcb234d885660ea2788d678f0242a&imgtype=0&src=http%3A%2F%2Fimg2.ph.126.net%2FM7HHGCYwSh9HSbjALBJKlg%3D%3D%2F1147010530113851225.jpg'
-    }],
+    swiperList: [],
     iconList: [{
       icon: 'cardboardfill',
       color: 'red',
@@ -49,10 +34,39 @@ Page({
     const that = this;
     that.loadNewsList();
     that.loadUsreList();
+    // 获取banner
+    app.indexApi.getBanner().then(res => {
+      let arr = [];
+      if (res.data.length > 0) {
+        for (let i in  res.data) {
+          let obj = {}
+          res.data[i].filepath = app.indexApi.ImgUrl + res.data[i].filepath;
+          obj.url = res.data[i].filepath;
+          arr.push(obj);
+        }
+        that.setData({
+          swiperList: arr
+        })
+     }
+    })
+    // 获取活动新闻
+    that.loadActive(0,1);
   },
   cardSwiper(e) {
     this.setData({
       cardCur: e.detail.current
+    })
+  },
+  
+  // 获取活动列表
+  loadActive: function() {
+    var that = this;
+    app.indexApi.userActList(5,1).then(res => {
+      if (res.date.length > 0) {
+        that.setData({
+          actCon: res.date
+        })
+      }
     })
   },
   // 加载新闻列表
