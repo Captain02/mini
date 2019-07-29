@@ -126,5 +126,11 @@ Page({
     wx.navigateTo({
       url: '/pages/add/add'
     })
+  },
+  goActDetail(e) {
+    let actid = e.currentTarget.dataset.actid;
+    wx.navigateTo({
+      url: '/pages/Contend/detail/contendetail?actid=' + actid
+    })
   }
 })

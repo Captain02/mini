@@ -1,4 +1,4 @@
-<template name="activitylist">
+<template name="activitylist" >
   <!-- <view bindtap="goActivitydetail"  class=" radius shadow shadow-lg bg-white margin-top act-item act-item-con">
     <view class="act-top">
       <view class="act-top-img">
@@ -43,7 +43,7 @@
       </view>
     </view>
   </view> -->
-    <view class="cu-item grayscale">
+    <view class="cu-item grayscale"  bindtap="goActDetail" data-actid="{{actid}}">
       <view class="cu-avatar radius lg" style='background-image:url({{imgUrl}}{{images}})'></view>
       <view class="content">
         <view>

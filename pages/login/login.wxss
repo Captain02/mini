@@ -1,8 +1,19 @@
+ page {
+   background: #fff;
+ }
+ .mytitle {
+   width: 100%;
+   height: 80rpx;
+   line-height: 80rpx;
+   text-align: center;
+   font-size: 36rpx;
+   color: #353535;
+   margin-top: 20rpx;
+ }
 .header {
-    margin: 90rpx 0 90rpx 50rpx;
     border-bottom: 1px solid #ccc;
     text-align: center;
-    width: 650rpx;
+    width: 100%;
     height: 300rpx;
     line-height: 450rpx;
 }
@@ -10,9 +21,13 @@
 .header image {
     width: 200rpx;
     height: 200rpx;
+    border-radius: 100rpx;
+    border:1px solid #dfdfdf;
 }
  
 .content {
+    width: 100%;
+    margin-top: 30rpx;
     margin-left: 50rpx;
     margin-bottom: 90rpx;
 }

@@ -8,11 +8,14 @@ Page({
     imgUrl: app.indexApi.ImgUrl
   },
   onLoad: function() {
-    this.loadData(1, 10);
+  },
+  onReady: function() {
+    this.loadData(0, 10);
   },
   loadData(page, size) {
     var that = this;
     app.indexApi.getBaituanList(page, size).then(res => {
+      console.log(res)
       if (res.date.length > 0) {
         that.setData({
           arr: res.date

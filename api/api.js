@@ -1,7 +1,7 @@
 import request from './http.js'
 class agriknow {
   constructor() {
-    this._baseUrl = 'http://47.105.58.149:8082/HBOFRONT'
+    this._baseUrl = 'http://www.btzmpro.com:8082/HBOFRONT'
     this.ImgUrl = 'http://47.105.58.149:82'
     this._defaultHeader = { 'data-tupe': 'application/json' }
     this._request = new request
@@ -30,13 +30,11 @@ class agriknow {
   }
 
   // 社团列表
-  getBaituanList(currPage = 1, pageSize = 10) {
+  getBaituanList(currPage = 0, pageSize = 10) {
     let data = { currPage: currPage, pageSize: pageSize }
     return this._request.getRequest(this._baseUrl + '/corporation/getListPage', data).then(res => res.data)
   }
 
-  
-   
   // 首页轮播
   getBanner() {
     return this._request.getRequest(this._baseUrl + '/getBanner').then(res => res.data)

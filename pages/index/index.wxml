@@ -47,8 +47,8 @@
 </view>
 <view class='act-con' style="margin-top:20rpx;">
   <view class="cu-list menu-avatar">
-    <template is="activitylist" wx:for="{{actCon}}" wx:key="idx" data="{{...item,imgUrl}}"> 
-  </template>
+    <template is="activitylist" wx:for="{{actCon}}" wx:key="idx" data="{{...item,imgUrl}}" bindtap="goActDetail">
+    </template>
   </view>
 </view>
 
@@ -65,7 +65,6 @@
     <text class="{{nowIdx == idx ? 'active': ''}}">{{item}}</text>
   </view>
 </view>
-
 
 <!--发布列表-->
 <view wx:if="{{nowIdx === 0 ? 1:0}}" >

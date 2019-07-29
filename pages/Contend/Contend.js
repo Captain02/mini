@@ -38,7 +38,12 @@ Page({
   onShow: function () {
 
   },
-
+  goActDetail(e) {
+    let actid = e.currentTarget.dataset.actid;
+    wx.navigateTo({
+      url: '/pages/Contend/detail/contendetail?actid=' + actid
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

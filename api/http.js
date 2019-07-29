@@ -3,7 +3,9 @@
  */
 class request {
   constructor() {
-    this._header = {}
+    this._header = {
+      'content-type': 'application/json'
+    }
   }
 
   /**

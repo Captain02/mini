@@ -1,0 +1,30 @@
+<view class=" text-center bg-grey light">
+  <view class="padding radius shadow bg-white">
+    <view class="topbanner">
+      <image src="/assets/images/001.jpg"></image>
+    </view>
+    <!--头像-->
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="content flex-sub">
+          <view class="text-grey">正义天使 凯尔</view>
+          <view class="text-gray text-sm flex justify-between">
+            十天前
+            <view class="text-gray text-sm">
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text>活动内容
+      </view>
+    </view>
+    <view class="textcon">Android的模拟器很多，但最原汁原味的下载Genymotion需要到Genymotion官网注册Genymotion
+      ，注册Genymotion并获取下载地址，将下载好的Genymotion安装即可。
+    </view>
+  </view>
+</view>
