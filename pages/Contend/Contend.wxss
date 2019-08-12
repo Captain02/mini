@@ -1,4 +1,6 @@
 @import "../../components/activity/activity.wxss";
+@import "../index/index.wxss";
+@import "../../style/colorui/animation.wxss";
 /* .act-con {
   display: flex;
   flex-wrap: wrap;

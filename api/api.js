@@ -1,7 +1,7 @@
 import request from './http.js'
 class agriknow {
   constructor() {
-    this._baseUrl = 'http://www.btzmpro.com:8082/HBOFRONT'
+    this._baseUrl = 'https://www.btzmpro.com:8082/HBOFRONT'
     this.ImgUrl = 'http://47.105.58.149:82'
     this._defaultHeader = { 'data-tupe': 'application/json' }
     this._request = new request
@@ -15,12 +15,8 @@ class agriknow {
     console.error(res)
   }
   // 用户登录
-  userLogin(username, password) {
-    let data = {
-      username,
-      password
-    }
-    return this._request.postRequest(this._baseUrl + '/api/sys/login', data).then(res => res.data)
+  userLogin(data) {
+    return this._request.postTwoRequest(this._baseUrl + '/api/sys/login', data).then(res => res.data)
   }
 
   // 新闻列表
@@ -28,10 +24,13 @@ class agriknow {
     let data = { currPage: currPage, pageSize: pageSize }
     return this._request.getRequest(this._baseUrl + '/sys/news/list', data).then(res => res.data)
   }
-
+  // 刷新token
+  refreshToken() {
+    return this._request.getRequest(this._baseUrl + '/api/sys/refreshToken').then(res => res.data)
+  }
   // 社团列表
-  getBaituanList(currPage = 0, pageSize = 10) {
-    let data = { currPage: currPage, pageSize: pageSize }
+  getBaituanList(currPage = 1, pageSize = 10, scale) {
+    let data = { currPage: currPage, pageSize: pageSize, scale: scale }
     return this._request.getRequest(this._baseUrl + '/corporation/getListPage', data).then(res => res.data)
   }
 
@@ -50,7 +49,7 @@ class agriknow {
   /**
    * 新闻评论列表
    */
-  getNewsComment(topicid, currPage = 0, pageSize = 10) {
+  getNewsComment(topicid, currPage = 1, pageSize = 10) {
     let data = { topicid: topicid, currPage: currPage, pageSize: pageSize }
     return this._request.getRequest(this._baseUrl + '/sys/news/getNewsReplice', data).then(res => res.data)
   }
@@ -102,7 +101,7 @@ class agriknow {
   
   /***************用户发布*************** */
   // 用户发布列表
-  userPush(pageSize, currPage) {
+  userPushList(pageSize, currPage) {
     let data = {
       pageSize,
       currPage
@@ -130,18 +129,69 @@ class agriknow {
     let data = {
       actid
     }
-    return this._request.getRequest(this._baseUrl + '/sys/contention/getCoractivity', data).then(res => res.data)
+    return this._request.getRequest(this._baseUrl + '/contention/getCoractivity', data).then(res => res.data)
   }
 
   // 用户发布帖子
-  userAcDetail(content, userid, imageid ) {
+  userPush(content, imageid ) {
     let data = {
-      token: '',
+      token: wx.getStorageSync('token'),
       content,
-      userid,
+      userid: wx.getStorageSync('userid'),
       imageid
     }
     return this._request.postRequest(this._baseUrl + '/sys/psersion/releaseTopic', data).then(res => res.data)
+  }
+  // 保存用户信息
+  saveUserInfo(data) {
+    const { nickName, gender } = data
+    return this._request.postRequest(this._baseUrl + '/sys/userinfo/saveuserwehartinfo', { nickName, gender }).then(res => res.data)
+  }
+  // 绑定用户信息
+  bindUser(username, password, user_id) {
+    let data = {
+      username,
+      password,
+      user_id
+    }
+    return this._request.postRequest(this._baseUrl + '/sys/userinfo/updateUsernameAndPassword', data).then(res => res.data)
+  }
+  // 获取用户信息
+  getUser() {
+    return this._request.getRequest(this._baseUrl + '/api/getuserInfo',{},{
+      "Authorization": wx.getStorageSync('token')
+    }).then(res => res.data)
+  }
+  
+  // 更新用户信息
+  updateUser(email, mobile, wechar, qq, college, collegetie, descs, name) {
+    let data = {
+      token: '',
+      email,
+      mobile,
+      wechar,
+      college,
+      collegetie,
+      descs,
+      name
+    }
+    return this._request.postRequest(this._baseUrl + '/sys/userinfo/updateUsernameAndPassword', data).then(res => res.data)
+  }
+  // 社团详情
+  getSheTuanDetail(idx) {
+    let data = {
+      id: idx
+    }
+    return this._request.getRequest(this._baseUrl + '/corporation/getCorporation', data).then(res => res.data)
+  }
+  // 加入社团
+  addSheTuan(idx, deptid, corid) {
+    let data = {
+      id: idx,
+      deptid,
+      corid
+    }
+    return this._request.getRequest(this._baseUrl + '/corporation/getCorporation', data).then(res => res.data)
   }
 }
 export default agriknow

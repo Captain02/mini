@@ -1,5 +1,5 @@
 <!--引入活动组件-->
-<import src="../../components/activity/activity.wxml"/>
+<import src="../../components/activity/activity.wxml" />
 
 <!--活动信息-->
 <view class="cu-bar bg-white solid-bottom margin-top">
@@ -9,7 +9,14 @@
 </view>
 <view class='act-con' style="margin-top:20rpx;">
   <view class="cu-list menu-avatar">
-    <template is="activitylist" wx:for="{{actCon}}" wx:key="idx" data="{{...item,imgUrl}}"> 
-  </template>
+    <template is="activitylist" wx:for="{{actCon}}" wx:key="idx" data="{{...item,imgUrl, toggleDelay, idx}}">
+    </template>
+  </view>
+  <view wx:if="{{showMore}}" class="padding flex flex-direction" data-page="{{nowpage}}" bindtap="loadmore">
+    <text class="cuIcon-loading2 iconfont-spin"></text> 加载更多...
+  </view>
+
+  <view wx:if="{{!showMore}}" class="padding flex flex-direction">
+    没有更多了...
   </view>
 </view>

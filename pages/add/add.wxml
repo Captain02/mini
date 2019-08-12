@@ -23,7 +23,7 @@
 		</view>
 	</view>
   <view class="padding-xl">
-    <button class="cu-btn block bg-orange margin-tb-sm lg">
-      <text class="cuIcon-loading2 iconfont-spin"></text> 加载
+    <button class="cu-btn block bg-orange margin-tb-sm lg" bindtap="userPushCon">
+     发布信息
     </button>
   </view>

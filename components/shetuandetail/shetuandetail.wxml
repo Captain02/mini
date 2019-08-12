@@ -1,0 +1,34 @@
+<template name="indexCard">
+  <view class="cu-card case isCard" data-userid="{{id}}" bindtap="gocard">
+    <view class="cu-item shadow">
+      <view class="image">
+        <video style="width:100%" src="{{imgUrl}}{{videofile}}"></video>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">{{content}}</text>
+        </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" bindtap='goUserInfo' style="background-image:url({{imgUrl}}{{userfilepath}});"></view>
+          <view class="content flex-sub">
+            <view class="text-grey">{{corleading}}
+              <text>{{createtime}}</text>
+            </view>
+            <view class="text-gray text-sm flex justify-between">
+              {{corcollegeName}}
+            </view>
+          </view>
+        </view>
+      </view>
+    <view class="cu-bar bg-white margin-top">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text>{{corname}}
+      </view>
+    </view>
+    <view class="padding-xl radius shadow bg-white">
+      <rich-text nodes="{{descs}}"></rich-text>
+    </view>
+    </view>
+
+  </view>
+</template>

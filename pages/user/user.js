@@ -1,17 +1,36 @@
+const app = getApp();
 Page({
   data: {
-    PageCur: 'basics'
+    PageCur: 'basics',
+    userInfo: {},
+    imgUrl: app.indexApi.ImgUrl,
+    status: false,
+    loginStatus: '未注册'
+  },
+  onShow() {
+    // 获取个人信息
+    app.indexApi.getUser().then(res => {
+      if (res.code == 0) {
+        this.setData({
+          status: true,
+          userInfo: res.user,
+          loginStatus: ''
+        })
+      } else {
+        app.indexApi.refreshToken().then(res => {
+          console.log(res)
+        })
+      }
+    })
   },
   NavChange(e) {
     this.setData({
       PageCur: e.currentTarget.dataset.cur
     })
   },
-  onShareAppMessage() {
-    return {
-      title: 'ColorUI-高颜值的小程序UI组件库',
-      imageUrl: '/images/share.jpg',
-      path: '/pages/index/index'
-    }
-  },
+  goAddUserInfo() {
+    wx.navigateTo({
+      url: '../../pages/login/userlogin/userlogin',
+    })
+  }
 })

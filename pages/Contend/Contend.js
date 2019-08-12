@@ -1,10 +1,15 @@
 const app = getApp();
+var page = 1;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    nowpage: 1,
+    showMore: true,
+    actCon: [],
+    toggleDelay: false,
     imgUrl: app.indexApi.ImgUrl
   },
 
@@ -12,19 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadActive()
+    
   },
-  // 获取活动列表
-  loadActive: function () {
-    var that = this;
-    app.indexApi.userActList(5, 1).then(res => {
-      if (res.date.length > 0) {
-        that.setData({
-          actCon: res.date
-        })
-      }
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -36,7 +31,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.loadActive(10, 1);
+  },
+  // 获取活动列表
+  loadActive: function (size, page) {
+    var that = this;
+    var actCon = that.data.actCon;
+    app.indexApi.userActList(size, page).then(res => {
+      let str = 'date'
+      if (str in res) {
+        for (let i in res.date) {
+          actCon.push(res.date[i])
+        }
+        that.setData({
+          actCon: actCon,
+          showMore: true
+        })
+      } else {
+        that.setData({
+          showMore: false
+        })
+      }
+    })
   },
   goActDetail(e) {
     let actid = e.currentTarget.dataset.actid;
@@ -44,38 +60,17 @@ Page({
       url: '/pages/Contend/detail/contendetail?actid=' + actid
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  loadmore(e) {
+    var that = this;
+    page++;
+    this.loadActive(5, page)
+    that.setData({
+      toggleDelay: true
+    })
+    setTimeout(function () {
+      that.setData({
+        toggleDelay: false
+      })
+    }, 1000)
   }
 })

@@ -2,10 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/BaiTuan/BaiTuan",
+    "pages/BaiTuan/BaiTuanDetail/BaiTuanDetail",
     "pages/Contend/Contend",
     "pages/user/user",
     "pages/add/add",
     "pages/login/login",
+    "pages/login/userlogin/userlogin",
     "pages/Contend/detail/contendetail",
     "pages/user/userInfo/userInfo",
     "pages/index/newsdetail/newsdetail",

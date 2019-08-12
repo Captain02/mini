@@ -15,23 +15,46 @@ Page({
       icon: 'cardboardfill',
       color: 'red',
       badge: 120,
-      name: '板块一'
+      name: '社团'
     }, {
       icon: 'recordfill',
       color: 'orange',
       badge: 1,
-      name: '板块二'
+      name: '争鸣'
     }, {
       icon: 'picfill',
       color: 'yellow',
       badge: 0,
-      name: '板块三'
+      name: '优惠'
     }],
     gridCol: 3,
     skin: false
   },
   onLoad: function(options) {
-    const that = this;
+    var that = this;
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: function (res) {
+              //从数据库获取用户信息
+              app.indexApi.getUser().then(res => {
+                if (res.code == 0) {
+                  // 获取用户信息成功
+
+                } else {
+
+                }
+              })
+            }
+          });
+        } else {
+          wx.navigateTo({
+            url: '../../pages/login/login',
+          })
+        }
+      }
+    })
     that.loadNewsList();
     that.loadUsreList();
     // 获取banner
@@ -69,6 +92,18 @@ Page({
       }
     })
   },
+  goPage(e) {
+    let type = e.currentTarget.dataset.id
+    if (type == 0 ) {
+      wx.switchTab({
+        url: '../../pages/BaiTuan/BaiTuan',
+      })
+    } else if (type == 1) {
+      wx.switchTab({
+        url: '../../pages/Contend/Contend',
+      })
+    }
+  },
   // 加载新闻列表
   loadNewsList: function() {
     app.indexApi.getNews().then(res => {
@@ -85,7 +120,7 @@ Page({
   },
   // 加载用户发布列表
   loadUsreList: function () {
-    app.indexApi.userPush(1,10).then(res => {
+    app.indexApi.userPushList(10,1).then(res => {
       if (res.data.length > 0) {
         for (let i in res.data) {
           res.data[i].createtime = getDateTimeStamp(res.data[i].createtime);

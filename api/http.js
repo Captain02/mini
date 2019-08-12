@@ -4,7 +4,12 @@
 class request {
   constructor() {
     this._header = {
-      'content-type': 'application/json'
+      "Content-Type": "application/json",
+      "Authorization": wx.getStorageSync('token')
+    },
+    this._headerOld = {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": wx.getStorageSync('token')
     }
   }
 
@@ -40,9 +45,15 @@ class request {
    * POST类型的网络请求
    */
   postRequest(url, data, header = this._header) {
+
     return this.requestAll(url, data, header, 'POST')
   }
 
+  postTwoRequest(url, data, header = this._headerOld) {
+
+    return this.requestAll(url, data, header, 'POST')
+  }
+  
   /**
    * 网络请求
    */

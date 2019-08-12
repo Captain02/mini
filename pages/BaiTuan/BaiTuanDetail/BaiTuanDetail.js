@@ -1,12 +1,12 @@
-const app  = getApp()
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    actId: '',
-    pageCon: {},
+    id: '',
+    pageobj: {},
     imgUrl: app.indexApi.ImgUrl
   },
 
@@ -14,8 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      actId: options.actid
+    var that = this
+    that.setData({
+      id: options.id
     })
   },
 
@@ -30,18 +31,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let actId = this.data.actId
-    app.indexApi.userAcDetail(actId).then(res => {
+    var that = this;
+    let idx = that.data.id;
+    app.indexApi.getSheTuanDetail(idx).then(res => {
       if (res.code == 0) {
-        if (res.date.deptname == null || res.date.deptname == "") {
-          res.date.deptname = ""
-          console.log('aa')
-        }
-        this.setData({
-          pageCon: res.date
+        that.setData({
+          pageobj: res.date
         })
       }
-      console.log(res)
     })
   },
 
@@ -51,7 +48,19 @@ Page({
   onHide: function () {
 
   },
-
+  addJob() {
+    let id = this.data.id;
+    app.indexApi.addSheTuan(id).then(res => {
+      wx.showToast({
+        title: '提交成功',
+      })
+    }).catch(err => {
+      wx.showToast({
+        title: '加入失败',
+        icon: 'none'
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面卸载
    */

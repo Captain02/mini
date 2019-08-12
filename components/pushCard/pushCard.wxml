@@ -2,7 +2,7 @@
   <view class="cu-card case isCard" data-userid="{{id}}" bindtap="gocard">
     <view class="cu-item shadow">
       <view class="image" >
-        <image src="{{filepath}}" mode="widthFix"></image>
+        <image src="{{imgUrl}}{{filepath}}" mode="widthFix"></image>
         <view class="cu-bar bg-shadeBottom">
           <text class="text-cut">{{content}}</text>
         </view>

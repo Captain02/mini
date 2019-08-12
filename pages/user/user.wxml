@@ -1,13 +1,18 @@
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg">
-    <view class="user-header">
-      <image src="/assets/images/004.jpg" ></image>
+    <view class="user-header" wx:if="{{status}}">
+      <image src="{{imgUrl}}{{userInfo.headpath}}" ></image>
     </view>
-    
-    <view class="text-xl">王晓蒙
+    <view class="user-header"wx:if="{{!status}}" >
+      <image src="../../assets/images/person1.png" ></image>
+    </view>
+    <view class="text-xl" style="font-size:30rpx;margin-top:20rpx;" bindtap="goAddUserInfo">
+      {{loginStatus}}
+    </view>
+    <view class="text-xl">{{userInfo.name}}
     </view>
     <view class="margin-top-sm">
-      <text>信息管理学院</text>
+      <text>{{userInfo.college}}</text>
     </view>
     <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
@@ -38,25 +43,25 @@
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/log/log" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">功能一</text>
+        <text class="text-grey">参与社团</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
       <view class="content" bindtap="showQrcode">
         <text class="cuIcon-appreciatefill text-red"></text>
-        <text class="text-grey">功能一</text>
+        <text class="text-grey">活动评论</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback">
         <text class="cuIcon-writefill text-cyan"></text>
-        <text class="text-grey">功能一</text>
+        <text class="text-grey">优惠福利</text>
       </button>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/test/list" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
-        <text class="text-grey">功能一</text>
+        <text class="text-grey">个人信息</text>
       </navigator>
     </view>
   </view>

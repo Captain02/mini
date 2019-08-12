@@ -43,7 +43,7 @@
       </view>
     </view>
   </view> -->
-    <view class="cu-item grayscale"  bindtap="goActDetail" data-actid="{{actid}}">
+    <view  class="cu-item grayscale {{toggleDelay?'animation-slide-bottom':''}} margin-sm basis-sm shadow" style="animation-delay: {{(idx+1)*0.1}}s;"  bindtap="goActDetail" data-actid="{{actid}}">
       <view class="cu-avatar radius lg" style='background-image:url({{imgUrl}}{{images}})'></view>
       <view class="content">
         <view>

@@ -1,35 +1,38 @@
 <view class="top-bar">
-  <view class="top-bar-item" wx:for="{{topTar}}" wx:for-index="idx" 
-    data-nowid="{{idx}}" bindtap='tarClick' wx:key="item.id">
+  <view class="top-bar-item" wx:for="{{topTar}}" wx:for-index="idx" data-nowid="{{idx}}" bindtap='tarClick' wx:key="item.id">
     <text class="{{nowIdx == idx ? 'active': ''}}">{{item}}</text>
   </view>
 </view>
 
 <view style="margin-top:10rpx;">
-<view class="cu-card case {{isCard?'no-card':''}}" wx:for="{{arr}}" wx:key="idx">
-  <view class="cu-item shadow" >
-    <view class="image">
-      <image src="{{imgUrl}}{{item.fileid}}" ></image>
-      <!-- <view class="cu-tag bg-blue">添加</view> -->
-    </view>
-    <view class="cu-list menu-avatar">
-      <view class="cu-item">
-        <view class="cu-avatar round lg" 
-          style='background-image:url({{imgUrl}}{{item.userfilepath}}  )'></view>
-        <view class="content flex-sub">
-          <view class="text-grey">{{item.corname}}</view>
-          <view class="text-gray text-sm flex justify-between">
-            十天前
-            <view class="text-gray text-sm">
+  <view class="cu-card case {{isCard?'no-card':''}}" wx:for="{{arr}}" wx:key="idx" data-id="{{item.id}}" bindtap="godetail">
+    <view class="cu-item shadow">
+      <view class="image">
+        <image src="{{imgUrl}}{{item.bannerid}}"></image>
+        <!-- <view class="cu-tag bg-blue">添加</view> -->
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style='background-image:url({{imgUrl}}{{item.userfilepath}}  )'></view>
+          <view class="content flex-sub">
+            <view class="text-grey">{{item.corname}}</view>
+            <view class="text-gray text-sm flex justify-between">
+              十天前
+              <view class="text-gray text-sm">
                 <view>面向人群：{{item.corcrowdList[0]}}</view>
+              </view>
             </view>
           </view>
         </view>
       </view>
     </view>
   </view>
+
+  <view wx:if="{{showMore}}" class="padding flex flex-direction" data-page="{{nowpage}}" bindtap="loadmore">
+   <text class="cuIcon-loading2 iconfont-spin"></text> 加载更多...
+  </view>
+  
+  <view wx:if="{{!showMore}}" class="padding flex flex-direction">
+     没有更多了...
+  </view>
 </view>
-
-
-</view>
-
