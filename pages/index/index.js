@@ -30,31 +30,8 @@ Page({
     gridCol: 3,
     skin: false
   },
-  onLoad: function(options) {
+  onShow: function(options) {
     var that = this;
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function (res) {
-              //从数据库获取用户信息
-              app.indexApi.getUser().then(res => {
-                if (res.code == 0) {
-                  // 获取用户信息成功
-
-                } else {
-
-                }
-              })
-            }
-          });
-        } else {
-          wx.navigateTo({
-            url: '../../pages/login/login',
-          })
-        }
-      }
-    })
     that.loadNewsList();
     that.loadUsreList();
     // 获取banner
@@ -101,6 +78,11 @@ Page({
     } else if (type == 1) {
       wx.switchTab({
         url: '../../pages/Contend/Contend',
+      })
+    } else {
+      wx.showToast({
+        title: '暂未开发，请耐心等待',
+        icon: 'none'
       })
     }
   },

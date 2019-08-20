@@ -18,7 +18,10 @@ Page({
         })
       } else {
         app.indexApi.refreshToken().then(res => {
-          console.log(res)
+          wx.showToast({
+            title: res.msg,
+            icon: 'none'
+          })
         })
       }
     })

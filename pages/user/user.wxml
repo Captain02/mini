@@ -59,7 +59,7 @@
       </button>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+      <navigator class="content" url="/pages/user/saveinfo/saveinfo" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">个人信息</text>
       </navigator>

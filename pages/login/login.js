@@ -6,6 +6,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function() {
+
   },
   bindGetUserInfo: function(e) {
     if (e.detail.userInfo) {

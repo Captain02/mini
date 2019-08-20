@@ -15,6 +15,22 @@ Page({
    */
   onLoad: function (options) {
     console.log(app.indexApi._baseUrl + '/sys/psersion/uploudpersionTopic')
+    // 获取个人信息
+
+  },
+  onShow: function() {
+    app.indexApi.getUser().then(res => {
+      if (res.code == 0) {
+        wx.setStorageSync('userid', res.user.user_id)
+      } else {
+        app.indexApi.refreshToken().then(res => {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none'
+          })
+        })
+      }
+    })
   },
   textareaAInput(e) {
     this.setData({
