@@ -1,9 +1,14 @@
 import request from './http.js'
+const formHead = {
+  "Content-Type": "application/x-www-form-urlencoded",
+  "Authorization": wx.getStorageSync('token')
+}
 class agriknow {
   constructor() {
     this._baseUrl = 'https://www.btzmpro.com:8082/HBOFRONT'
     this.ImgUrl = 'http://47.105.58.149:82'
     this._defaultHeader = {
+      "Authorization": wx.getStorageSync('token'),
       'Content-Type': 'application/json'
     }
     this._request = new request
@@ -111,7 +116,7 @@ class agriknow {
       repliescontent,
       repliesuserid
     }
-    return this._request.postRequest(this._baseUrl + ' /sys/news/replies', data).then(res => res.data)
+    return this._request.postTwoRequest(this._baseUrl + ' /sys/news/replies', data).then(res => res.data)
   }
 
   /***************用户发布*************** */
@@ -160,9 +165,7 @@ class agriknow {
       topicid,
       repliesuserid
     }
-    return this._request.postRequest(this._baseUrl + '/bbs_like/addReplies', data, {
-      "Authorization": wx.getStorageSync('token')
-    }).then(res => res.data)
+    return this._request.postTwoRequest(this._baseUrl + '/bbs_like/addReplies', data, formHead).then(res => res.data)
   }
   // 活动评论
   actComment(topicid, currPage = 1, pageSize = 10) {
@@ -181,9 +184,7 @@ class agriknow {
       userid: wx.getStorageSync('userid'),
       imageid
     }
-    return this._request.postRequest(this._baseUrl + '/sys/psersion/releaseTopic', data, {
-      "Authorization": wx.getStorageSync('token')
-    }).then(res => res.data)
+    return this._request.postRequest(this._baseUrl + '/sys/psersion/releaseTopic', data).then(res => res.data)
   }
   // 保存用户信息
   saveUserInfo(data) {
@@ -210,9 +211,7 @@ class agriknow {
   }
   // 获取用户信息
   getUser() {
-    return this._request.getRequest(this._baseUrl + '/api/getuserInfo', {}, {
-      "Authorization": wx.getStorageSync('token')
-    }).then(res => res.data)
+    return this._request.getRequest(this._baseUrl + '/api/getuserInfo', {}).then(res => res.data)
   }
 
   // 更新用户信息
