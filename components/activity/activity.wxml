@@ -55,7 +55,7 @@
         </view>
       </view>
       <view class="action">
-        <view class="text-grey text-xs">22:20</view>
+        <view class="text-grey text-xs">{{createtime}}</view>
         <!-- <view class="cu-tag round bg-red sm">5</view> -->
       </view>
     </view>

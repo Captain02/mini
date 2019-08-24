@@ -1,5 +1,6 @@
 const app = getApp();
 var page = 1;
+import { getDateTimeStamp, getDateDiff } from "../../utils/mp-router/time.js";
 Page({
 
   /**
@@ -41,6 +42,8 @@ Page({
       let str = 'date'
       if (str in res) {
         for (let i in res.date) {
+          res.date[i].createtime = getDateTimeStamp(res.date[i].createtime);
+          res.date[i].createtime = getDateDiff(res.date[i].createtime);
           actCon.push(res.date[i])
         }
         that.setData({

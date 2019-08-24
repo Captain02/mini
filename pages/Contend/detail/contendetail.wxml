@@ -1,3 +1,4 @@
+<import src="../../wxParse/wxParse.wxml" />
 <view class=" text-center bg-grey light">
   <view class="padding radius shadow bg-white">
     <view class="topbanner">
@@ -10,7 +11,7 @@
         <view class="content flex-sub">
           <view class="text-grey">{{pageCon.deptname}} {{pageCon.corname}}</view>
           <view class="text-gray text-sm flex justify-between">
-            十天前
+            {{pageCon.createtime}}
             <view class="text-gray text-sm">
               <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
             </view>
@@ -23,7 +24,12 @@
         <text class="cuIcon-title text-blue"></text>{{pageCon.actname}}
       </view>
     </view>
-    <view class="textcon">{{pageCon.actdetails}}
+    <view class="textcon">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     </view>
   </view>
+  <!--活动详情-->
+
 </view>
+<!--评论-->
+<comment type="act" id="{{actId}}"></comment>

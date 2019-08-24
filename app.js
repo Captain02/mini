@@ -6,9 +6,9 @@ App({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
-              wx.switchTab({
-                url: '/pages/index/index',
-              })
+              // wx.switchTab({
+              //   url: '/pages/index/index',
+              // })
             }
           });
         } else {

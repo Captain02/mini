@@ -1,3 +1,4 @@
+<import src="../../pages/wxParse/wxParse.wxml" />
 <template name="indexCard">
   <view class="cu-card case isCard" data-userid="{{id}}" bindtap="gocard">
     <view class="cu-item shadow">
@@ -20,15 +21,11 @@
           </view>
         </view>
       </view>
-    <view class="cu-bar bg-white margin-top">
-      <view class="action">
-        <text class="cuIcon-title text-blue"></text>{{corname}}
+      <view class="cu-bar bg-white margin-top">
+        <view class="action">
+          <text class="cuIcon-title text-blue"></text>{{corname}}
+        </view>
       </view>
     </view>
-    <view class="padding-xl radius shadow bg-white">
-      <rich-text nodes="{{descs}}"></rich-text>
-    </view>
-    </view>
-
   </view>
 </template>

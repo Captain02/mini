@@ -12,7 +12,7 @@
     <view class="text-xl">{{userInfo.name}}
     </view>
     <view class="margin-top-sm">
-      <text>{{userInfo.college}}</text>
+      <text>{{userInfo.college?userInfo.college:'待填'}}</text>
     </view>
     <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>

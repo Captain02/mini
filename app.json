@@ -12,7 +12,8 @@
     "pages/user/userInfo/userInfo",
     "pages/user/saveinfo/saveinfo",
     "pages/index/newsdetail/newsdetail",
-    "pages/index/pushdetail/pushdetail"
+    "pages/index/pushdetail/pushdetail",
+    "pages/commentview/commentview"
   ],
   "tabBar": {
     "color": "#bfbfbf",

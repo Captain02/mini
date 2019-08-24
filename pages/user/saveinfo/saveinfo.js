@@ -12,6 +12,7 @@ Page({
     sex: '',
     imgId: "",
     imgData: "",
+    filed: "",
     ModalCon: "",
     modalName: "",
     textCon: "",
@@ -55,7 +56,6 @@ Page({
           imgData: res.tempFilePaths[0]
         })
         that.upload_file(res.tempFilePaths[0]);
-
       }
     });
   },
@@ -77,6 +77,9 @@ Page({
             duration: 700
           })
           var data = JSON.parse(res.data).data
+          that.setData({
+            filed: data.id
+          })
         } else {
           wx.showToast({
             title: JSON.parse(res.data).msg,
@@ -136,7 +139,7 @@ Page({
   },
   // 完善信息
   pushCon(e) {
-    console.log(e)
+    var that = this
     const {
       email,
       wx,
@@ -147,13 +150,17 @@ Page({
     } = e.detail.value;
 
     app.indexApi.updateUser(
-      email, phone, wx, QQ, this.data.collegeName, this.data.collegetieName, textCon,
-      this.data.userInfo.name,
+      that.data.filed,
+      email, phone, wx, QQ, that.data.collegeName, that.data.collegetieName, textCon,
+      that.data.userInfo.name,
     ).then(res => {
-      this.setData({
+      that.setData({
         modalName: e.currentTarget.dataset.target,
         ModalCon: res.msg
       })
+      setTimeout(function() {
+        that.hideModal();
+      }, 800)
     })
   },
   hideModal(e) {
@@ -170,6 +177,12 @@ Page({
           userInfo: res.user,
           imgUrl: this.data.imgUrl + res.user.headpath
         })
+        if (res.user.college) {
+          this.setData({
+            collegeName: res.user.college,
+            collegetieName: res.user.collegetie,
+          })
+        } 
       } else {
         app.indexApi.refreshToken().then(res => {
           wx.showToast({

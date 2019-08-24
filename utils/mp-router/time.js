@@ -1,10 +1,11 @@
 // 标准时间转时间戳
 function getDateTimeStamp(date) {
-  let result = new Date(date).getTime();
-  return result;
+  var dateTime = new Date(date)
+  dateTime = dateTime.getTime();
+  return dateTime;
 }
 function getDateDiff(dateTimeStamp) {
-  var result = "";
+  var result = ""
   var minute = 1000 * 60;
   var hour = minute * 60;
   var day = hour * 24;

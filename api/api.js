@@ -146,7 +146,33 @@ class agriknow {
     }
     return this._request.getRequest(this._baseUrl + '/contention/getCoractivity', data).then(res => res.data)
   }
-
+  // 发表活动评论
+  // userid发布人
+  // parentid父id
+  // repliescontent内容
+  // topicid主题id
+  // repliesuserid被回复人的id
+  addActCommment(userid, parentid, repliescontent, topicid, repliesuserid) {
+    let data = {
+      userid,
+      parentid,
+      repliescontent,
+      topicid,
+      repliesuserid
+    }
+    return this._request.postRequest(this._baseUrl + '/bbs_like/addReplies', data, {
+      "Authorization": wx.getStorageSync('token')
+    }).then(res => res.data)
+  }
+  // 活动评论
+  actComment(topicid, currPage = 1, pageSize = 10) {
+    let data = {
+      pageSize,
+      currPage,
+      topicid
+    }
+    return this._request.getRequest(this._baseUrl + '/contention/repliesList', data).then(res => res.data)
+  }
   // 用户发布帖子
   userPush(content, imageid) {
     let data = {
@@ -190,9 +216,11 @@ class agriknow {
   }
 
   // 更新用户信息
-  updateUser(email, mobile, wechar, QQ, college, collegetie, descs, name, username, password) {
+  updateUser(filed,email, mobile, wechar, QQ, college, collegetie, descs, name, username, password) {
     let data = {
       token: wx.getStorageSync('token'),
+      user_id: wx.getStorageSync('userid'),
+      filed,
       email,
       mobile,
       wechar,
@@ -202,7 +230,7 @@ class agriknow {
       descs,
       name,
     }
-    return this._request.postRequest(this._baseUrl + '/sys/userinfo/updateUsernameAndPassword', data).then(res => res.data)
+    return this._request.postRequest(this._baseUrl + '/sys/userinfo/updateuser', data).then(res => res.data)
   }
   // 社团详情
   getSheTuanDetail(idx) {
@@ -218,7 +246,7 @@ class agriknow {
       deptid,
       corid
     }
-    return this._request.getRequest(this._baseUrl + '/corporation/getCorporation', data).then(res => res.data)
+    return this._request.postTwoRequest(this._baseUrl + '/corporation/addCor', data).then(res => res.data)
   }
   // 学院
   chooseXueY(typeId) {

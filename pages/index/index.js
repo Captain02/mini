@@ -63,6 +63,10 @@ Page({
     var that = this;
     app.indexApi.userActList(5,1).then(res => {
       if (res.date.length > 0) {
+        for (let i in res.date) {
+          res.date[i].createtime = getDateTimeStamp(res.date[i].createtime);
+          res.date[i].createtime = getDateDiff(res.date[i].createtime);
+        }
         that.setData({
           actCon: res.date
         })
@@ -91,7 +95,6 @@ Page({
     app.indexApi.getNews().then(res => {
       if (res.data.length > 0) {
         for (let i in res.data) {
-          res.data[i].createtime = getDateTimeStamp(res.data[i].createtime);
           res.data[i].createtime = getDateDiff(res.data[i].createtime);
         }
         this.setData({

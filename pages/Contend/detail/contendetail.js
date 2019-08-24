@@ -1,11 +1,13 @@
 const app  = getApp()
+import WxParse from '../../wxParse/wxParse.js';
+import { getDateTimeStamp, getDateDiff } from "../../../utils/mp-router/time.js";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    actId: '',
+    actId: Number,
     pageCon: {},
     imgUrl: app.indexApi.ImgUrl
   },
@@ -17,6 +19,7 @@ Page({
     this.setData({
       actId: options.actid
     })
+    wx.setStorageSync('actid', options.actid)
   },
 
   /**
@@ -30,16 +33,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let actId = this.data.actId
+    const that = this
+    let actId = that.data.actId
     app.indexApi.userAcDetail(actId).then(res => {
       if (res.code == 0) {
         if (res.date.deptname == null || res.date.deptname == "") {
           res.date.deptname = ""
           console.log('aa')
         }
-        this.setData({
+        res.date.createtime = getDateTimeStamp(res.date.createtime)
+        res.date.createtime = getDateDiff(res.date.createtime)
+        that.setData({
           pageCon: res.date
         })
+        var article = res.date.actdetails;
+        WxParse.wxParse('article', 'html', article, that, 5);
       }
       console.log(res)
     })

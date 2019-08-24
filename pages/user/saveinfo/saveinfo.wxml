@@ -24,20 +24,18 @@
   </radio-group>
   <view class="cu-form-group">
     <view class="title">手机号</view>
-    <input name="phone"></input>
+    <input name="phone" value="{{userInfo.mobile}}"></input>
   </view>
   <view class="cu-form-group">
     <view class="title">邮箱</view>
-    <input name="email"></input>
+    <input name="email" value="{{userInfo.email}}"></input>
   </view>
-
-
 
   <view class="cu-form-group">
     <view class="title">学院</view>
     <picker value="{{index}}" range="{{college}}" range-key="value" bindchange="setCollege">
       <view class="picker">
-        {{college[nowCollegeindex].value}}
+        {{collegeName}}
       </view>
     </picker>
   </view>
@@ -46,17 +44,17 @@
     <view class="title">专业</view>
     <picker value="{{index}}" range="{{collegetie}}" range-key="value" bindchange="setCollegetie">
       <view class="picker">
-        {{collegetie[nowCollegetieindex].value}}
+        {{collegetieName}}
       </view>
     </picker>
   </view>
   <view class="cu-form-group">
     <view class="title">微信号</view>
-    <input name="wx"></input>
+    <input name="wx" value="{{userInfo.wechart}}"></input>
   </view>
   <view class="cu-form-group">
     <view class="title">QQ号</view>
-    <input name="QQ"></input>
+    <input name="QQ"  value="{{userInfo.qq}}"></input>
   </view>
   <view class="cu-form-group margin-top">
     <textarea maxlength="-1" name="textCon" disabled="{{modalName!=null}}" placeholder="想说点什么..."></textarea>

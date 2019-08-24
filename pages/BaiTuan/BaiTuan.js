@@ -60,5 +60,10 @@ Page({
     } else {
       this.loadData(page, 10, 'isfalse')
     }
+  },
+  onUnload: function() {
+    this.setData({
+      arr: []
+    })
   }
 })

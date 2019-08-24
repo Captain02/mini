@@ -1,4 +1,5 @@
 const app = getApp();
+import WxParse from '../../wxParse/wxParse.js';
 Page({
 
   /**
@@ -39,6 +40,8 @@ Page({
           pageobj: res.date
         })
       }
+      var BaiTuan = res.date.descs;
+      WxParse.wxParse('BaiTuan', 'html', BaiTuan, that, 5);
     })
   },
 
@@ -50,9 +53,9 @@ Page({
   },
   addJob() {
     let id = this.data.id;
-    app.indexApi.addSheTuan(id).then(res => {
+    app.indexApi.addSheTuan(id, this.data.pageobj.deptid, this.data.pageobj.id).then(res => {
       wx.showToast({
-        title: '提交成功',
+        title: res.data,
       })
     }).catch(err => {
       wx.showToast({
