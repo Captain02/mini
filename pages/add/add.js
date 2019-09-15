@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgList:[],
+    imgList: [],
     modalName: "",
     textareaAValue: ''
   },
@@ -13,24 +13,26 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(app.indexApi._baseUrl + '/sys/psersion/uploudpersionTopic')
     // 获取个人信息
 
   },
   onShow: function() {
-    app.indexApi.getUser().then(res => {
-      if (res.code == 0) {
-        wx.setStorageSync('userid', res.user.user_id)
-      } else {
-        app.indexApi.refreshToken().then(res => {
-          wx.showToast({
-            title: res.msg,
-            icon: 'none'
-          })
-        })
-      }
-    })
+    var token = wx.getStorageSync('token')
+    if (!token) {
+      wx.showToast({
+        title: "请您重新登录",
+        icon: 'none',
+        success: function () {
+          setTimeout(function () {
+            wx.navigateTo({
+              url: '../login/userlogin/userlogin',
+            })
+          }, 800)
+        }
+      })
+    }
   },
   textareaAInput(e) {
     this.setData({
@@ -62,17 +64,19 @@ Page({
       }
     });
   },
-  upload_file: function (i) {
+  upload_file: function(i) {
     var Imgarr = []
     var that = this;
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
       var arrData = that.data.imgList
       wx.uploadFile({
         url: app.indexApi._baseUrl + '/sys/psersion/uploudpersionTopic',
         filePath: arrData[0],
         name: 'file',
-        formData: { 'token': wx.getStorageSync('token') }, // HTTP 请求中其他额外的 form data
-        success: function (res) {
+        formData: {
+          'token': wx.getStorageSync('token')
+        }, // HTTP 请求中其他额外的 form data
+        success: function(res) {
           if (JSON.parse(res.data).code == 0) {
             // up_imgarr.push(JSON.parse(res.data).data)
             wx.showToast({
@@ -90,7 +94,7 @@ Page({
             })
           }
         },
-        fail: function (res) {
+        fail: function(res) {
           reject(false)
         }
       })

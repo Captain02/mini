@@ -1,0 +1,22 @@
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{tabCon}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      {{item}}
+    </view>
+  </view>
+</scroll-view>
+
+<view class="cu-bar bg-white margin-top" wx:for="{{ConData}}" wx:key="index">
+  <view class="action" style="width:100%">
+    <text class="cuIcon-title text-blue"></text>
+    <view class="list">
+      <view>{{item.corname}}</view>
+      <view >{{item.status}}</view>
+    </view>
+  </view>
+</view>
+
+  <view wx:if="{{showMore}}"  class="loadmore   bg-white margin-top  margin-bottom" data-page="{{nowpage}}" bindtap="loadmore">
+   加载更多...
+  </view>
+  

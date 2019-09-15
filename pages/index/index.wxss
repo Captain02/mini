@@ -1,4 +1,7 @@
 @import "../../components/news/news.wxss";
+.grid.col-3>view {
+  width: 48%;
+}
 page {
   background: #eef2f4;
   text-align: center;

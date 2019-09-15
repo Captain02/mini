@@ -17,8 +17,8 @@
     <view class="cu-form-group">
       <view class="title">性别</view>
       <view>
-        <radio class="blue radio" value="男" checked></radio>
-        <radio class="red margin-left-sm" value="女"></radio>
+        <radio class="blue radio" value="男" checked="{{userInfo.gender == '男'}}"></radio>
+        <radio class="red margin-left-sm" checked="{{userInfo.gender == '女'}}" value="女" ></radio>
       </view>
     </view>
   </radio-group>

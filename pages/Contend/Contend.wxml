@@ -12,11 +12,12 @@
     <template is="activitylist" wx:for="{{actCon}}" wx:key="idx" data="{{...item,imgUrl, toggleDelay, idx}}">
     </template>
   </view>
-  <view wx:if="{{showMore}}" class="padding flex flex-direction" data-page="{{nowpage}}" bindtap="loadmore">
-    <text class="cuIcon-loading2 iconfont-spin"></text> 加载更多...
+  
+  <view wx:if="{{showMore}}"  class="loadmore   bg-white margin-top  margin-bottom" data-page="{{nowpage}}" bindtap="loadmore">
+   加载更多...
   </view>
-
-  <view wx:if="{{!showMore}}" class="padding flex flex-direction">
-    没有更多了...
+  
+  <view wx:if="{{!showMore}}"  class="loadmore   bg-white margin-top margin-bottom" data-page="{{nowpage}}" bindtap="loadmore">
+   没有更多了...
   </view>
 </view>

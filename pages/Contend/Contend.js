@@ -75,5 +75,10 @@ Page({
         toggleDelay: false
       })
     }, 1000)
+  },
+  onHide: function () {
+    this.setData({
+      actCon: []
+    })
   }
 })

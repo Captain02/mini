@@ -12,19 +12,8 @@ Page({
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
       var that = this;
-      //插入登录的用户的相关信息到数据库
-      let data = {
-        nickName: e.detail.userInfo.nickName,
-        gender: e.detail.userInfo.gender
-      }
-      app.indexApi.saveUserInfo(data).then(res => {
-        console.log(res)
-        if (res.code == 0) {
-          wx.setStorageSync('userid', res.data.user_id)
-          wx.switchTab({
-            url: '../index/index'
-          })
-        }
+      wx.navigateTo({
+        url: './userlogin/userlogin'
       })
     } else {
       //用户按了拒绝按钮

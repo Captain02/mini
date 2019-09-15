@@ -5,26 +5,58 @@ Page({
     userInfo: {},
     imgUrl: app.indexApi.ImgUrl,
     status: false,
-    loginStatus: '未注册'
+    loginStatus: '未注册',
+    modalName: ""
+  },
+  hideModal() {
+    this.setData({
+      modalName: ""
+    })
+  },
+  makeModal() {
+    this.setData({ modalName: ""});
+    setTimeout(function() {
+      wx.navigateTo({
+        url: '../login/login',
+      })
+    }, 800)
   },
   onShow() {
     // 获取个人信息
-    app.indexApi.getUser().then(res => {
-      if (res.code == 0) {
-        this.setData({
-          status: true,
-          userInfo: res.user,
-          loginStatus: ''
-        })
-      } else {
-        app.indexApi.refreshToken().then(res => {
-          wx.showToast({
-            title: res.msg,
-            icon: 'none'
+    var that = this;
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          that.setData({modalName: ""})
+          app.indexApi.getUser().then(res => {
+            if (res.code == 0) {
+              that.setData({
+                status: true,
+                userInfo: res.user,
+                loginStatus: ''
+              })
+            } else {
+              wx.showToast({
+                title: "请您重新登录",
+                icon: 'none',
+                success: function() {
+                  setTimeout(function() {
+                    wx.navigateTo({
+                      url: '../login/userlogin/userlogin',
+                    })
+                  }, 800)
+                }
+              })
+            }
           })
-        })
+        } else {
+          that.setData({
+            modalName: "DialogModal"
+          })
+        }
       }
     })
+
   },
   NavChange(e) {
     this.setData({

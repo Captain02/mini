@@ -1,7 +1,7 @@
 .card-top {
   position: relative;
   width: 100%;
-  height: 400rpx;
+  height: 100%;
   border-radius: 9rpx;
 }
 .card-toptext {
@@ -12,7 +12,6 @@
 }
 .card-top image {
   width: 100%;
-  height: 100%;
 }
 .card-info {
   width: 100%;

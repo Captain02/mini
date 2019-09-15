@@ -1,55 +1,28 @@
 <view class="cu-list menu-avatar comment solids-top" wx:if="{{showMore}}">
-  <view class="cu-item">
-    <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+  <view class="cu-item" wx:for="{{actData}}" wx:key="index">
+    <view class="cu-avatar round" 
+    style='background-image:url({{imgUrl}}{{item.userinfo[0].headpath}});'></view>
     <view class="content">
-      <view class="text-grey">莫甘娜</view>
+      <view class="text-grey">{{item.userinfo[0].name}}</view>
       <view class="text-gray text-content text-df">
-        凯尔，你被自己的光芒变的盲目。
+        {{item.repliescontent}}
       </view>
-      <view class="bg-grey padding-sm radius margin-top-sm  text-sm">
+      <view class="bg-grey padding-sm radius margin-top-sm  text-sm" 
+      wx:key="index" wx:for="{{item.child}}" wx:for-item="cld">
         <view class="flex">
-          <view>凯尔：</view>
-          <view class="flex-sub">妹妹，你在帮他们给黑暗找借口吗?</view>
+          <view>{{cld.userinfo[0].name}}:</view>
+          <view class="flex-sub" style="margin-left:20rpx">{{cld.repliescontent}}</view>
         </view>
       </view>
       <view class="margin-top-sm flex justify-between">
-        <view class="text-gray text-df">2018年12月4日</view>
+        <view class="text-gray text-df">{{item.createtime}}</view>
         <view>
           <text class="cuIcon-appreciatefill text-red"></text>
-          <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="cu-item">
-    <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
-    <view class="content">
-      <view class="text-grey">凯尔</view>
-      <view class="text-gray text-content text-df">
-        妹妹，如果不是为了飞翔，我们要这翅膀有什么用?
-      </view>
-      <view class="bg-grey padding-sm radius margin-top-sm  text-sm">
-        <view class="flex">
-          <view>莫甘娜：</view>
-          <view class="flex-sub">如果不能立足于大地，要这双脚又有何用?</view>
-        </view>
-      </view>
-      <view class="margin-top-sm flex justify-between">
-        <view class="text-gray text-df">2018年12月4日</view>
-        <view>
-          <text class="cuIcon-appreciate text-gray"></text>
-          <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
+          <text bindtap="goComment" data-actid="{{item.topicid}}" data-id="{{item.repliesid}}"
+          class="cuIcon-messagefill text-gray margin-left-sm"></text>
         </view>
       </view>
     </view>
   </view>
 </view>
 
-<view class="padding text-center">
-  <view class="padding-xl radius shadow-warp bg-white margin-top">
-    <view wx:if="{{!showMore}}" class=" flex flex-direction">
-    <text>还没有人发言呢...</text>
-    <text style="font-size:24rpx;color:red" bindtap="goComment">去评论</text>
-    </view>
-  </view>
-</view>

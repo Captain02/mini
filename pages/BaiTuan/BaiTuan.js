@@ -8,11 +8,14 @@ Page({
     isCard: true,
     nowpage: 1,
     imgUrl: app.indexApi.ImgUrl,
-    showMore: true
+    showMore: true,
+    toggleDelay: false,
   },
   onLoad: function () {
   },
   onShow: function () {
+    // 初始化页码
+    page = 1;
     this.loadData(1, 10, 'istrue');
   },
   loadData(page, size, scale) {
@@ -26,7 +29,8 @@ Page({
         }
         that.setData({
           arr: arr,
-          showMore: true
+          showMore: true,
+          toggleDelay: true
         })
       } else {
         that.setData({
@@ -34,9 +38,11 @@ Page({
         })
       }
     })
+
   },
   tarClick(e) {
     let id = e.currentTarget.dataset.nowid;
+    this.setData({ arr: [] })
     if (id == 0) {
       this.loadData(1, 10, 'istrue')
     } else {
@@ -60,8 +66,9 @@ Page({
     } else {
       this.loadData(page, 10, 'isfalse')
     }
+
   },
-  onUnload: function() {
+  onHide: function() {
     this.setData({
       arr: []
     })

@@ -1,0 +1,39 @@
+<view class="cu-bar bg-white search fixed">
+  <picker value="{{index}}" range="{{college}}" range-key="value" bindchange="setCollege">
+    <view class="picker">
+      {{collegeName}}
+      <text class="cuIcon-triangledownfill"></text>
+    </view>
+  </picker>
+  <view class="search-form round">
+    <text class="cuIcon-search" bindtap="serchVal"></text>
+    <input type="text" placeholder="请输入社团名称..." confirm-type="search" bindinput="conName"></input>
+  </view>
+</view>
+
+<view style="margin-top:100rpx;">
+  <view class="cu-card case {{isCard?'no-card':''}}" wx:for="{{arr}}" wx:key="idx" data-id="{{item.id}}" bindtap="godetail">
+    <view class="cu-item {{toggleDelay?'animation-slide-bottom':''}} margin-sm basis-sm shadow" style="animation-delay: {{(item.id+1)*0.1}}s;">
+      <view class="image">
+        <image src="{{imgUrl}}{{item.bannerid}}"></image>
+        <!-- <view class="cu-tag bg-blue">添加</view> -->
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style='background-image:url({{imgUrl}}{{item.userfilepath}}  )'></view>
+          <view class="content flex-sub">
+            <view class="text-grey">{{item.corname}}</view>
+            <view class="text-gray text-sm flex justify-between">
+              十天前
+              <view class="text-gray text-sm">
+                <view>面向人群：{{item.corcrowdList[0]}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

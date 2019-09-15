@@ -8,6 +8,8 @@ Page({
   data: {
     id: '',
     pageobj: {},
+    modalName: false,
+    ModalCon: "",
     imgUrl: app.indexApi.ImgUrl
   },
 
@@ -54,14 +56,28 @@ Page({
   addJob() {
     let id = this.data.id;
     app.indexApi.addSheTuan(id, this.data.pageobj.deptid, this.data.pageobj.id).then(res => {
-      wx.showToast({
-        title: res.data,
+      this.setData({
+        modalName: "Modal",
+        ModalCon: res.data
       })
     }).catch(err => {
-      wx.showToast({
-        title: '加入失败',
-        icon: 'none'
+      this.setData({
+        modalName: "Modal",
+        ModalCon: "加入失败"
       })
+    })
+  },
+  showMore() {
+    const url = this.data.imgUrl + this.data.pageobj.bannerid;
+    console.log(url)
+    wx.previewImage({
+      current: url, 
+      urls: [url] // 需要预览的图片http链接列表
+    })
+  },
+  hideModal() {
+    this.setData({
+      modalName: false,
     })
   },
   /**

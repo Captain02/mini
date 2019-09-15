@@ -1,4 +1,4 @@
-<template name="activitylist" >
+<template name="activitylist">
   <!-- <view bindtap="goActivitydetail"  class=" radius shadow shadow-lg bg-white margin-top act-item act-item-con">
     <view class="act-top">
       <view class="act-top-img">
@@ -43,20 +43,20 @@
       </view>
     </view>
   </view> -->
-    <view  class="cu-item grayscale {{toggleDelay?'animation-slide-bottom':''}} margin-sm basis-sm shadow" style="animation-delay: {{(idx+1)*0.1}}s;"  bindtap="goActDetail" data-actid="{{actid}}">
-      <view class="cu-avatar radius lg" style='background-image:url({{imgUrl}}{{images}})'></view>
-      <view class="content">
-        <view>
-          <text class="text-cut">{{actname}}</text>
-          <!-- <view class="cu-tag round bg-orange sm">开始纳新了...</view> -->
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut"> {{corname}}</text>
-        </view>
+  <view class="cu-item grayscale {{toggleDelay?'animation-slide-bottom':''}} margin-sm basis-sm shadow" style="animation-delay: {{(idx+1)*0.1}}s;" bindtap="goActDetail" data-actid="{{actid}}">
+    <view class="cu-avatar radius lg" style='background-image:url({{imgUrl}}{{images}})'></view>
+    <view class="content">
+      <view>
+        <text class="text-cut">{{actname}}</text>
+        <!-- <view class="cu-tag round bg-orange sm">开始纳新了...</view> -->
       </view>
-      <view class="action">
-        <view class="text-grey text-xs">{{createtime}}</view>
-        <!-- <view class="cu-tag round bg-red sm">5</view> -->
+      <view class="text-gray text-sm flex">
+        <text class="text-cut"> {{corname}}</text>
       </view>
     </view>
+    <view class="action">
+      <view class="text-grey text-xs">{{createtime}}</view>
+      <!-- <view class="cu-tag round bg-red sm">5</view> -->
+    </view>
+  </view>
 </template>

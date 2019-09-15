@@ -11,7 +11,9 @@
     "pages/Contend/detail/contendetail",
     "pages/user/userInfo/userInfo",
     "pages/user/saveinfo/saveinfo",
+    "pages/user/mass/mass",
     "pages/index/newsdetail/newsdetail",
+    "pages/index/findPage/findPage",
     "pages/index/pushdetail/pushdetail",
     "pages/commentview/commentview"
   ],

@@ -6,7 +6,7 @@
 
 <view style="margin-top:10rpx;">
   <view class="cu-card case {{isCard?'no-card':''}}" wx:for="{{arr}}" wx:key="idx" data-id="{{item.id}}" bindtap="godetail">
-    <view class="cu-item shadow">
+    <view class="cu-item {{toggleDelay?'animation-slide-bottom':''}} margin-sm basis-sm shadow"style="animation-delay: {{(item.id+1)*0.1}}s;">
       <view class="image">
         <image src="{{imgUrl}}{{item.bannerid}}"></image>
         <!-- <view class="cu-tag bg-blue">添加</view> -->
@@ -28,11 +28,11 @@
     </view>
   </view>
 
-  <view wx:if="{{showMore}}" class="padding flex flex-direction" data-page="{{nowpage}}" bindtap="loadmore">
-   <text class="cuIcon-loading2 iconfont-spin"></text> 加载更多...
+  <view wx:if="{{showMore}}"  class="padding flex flex-direction cu-bar bg-white margin-top margin-bottom" data-page="{{nowpage}}" bindtap="loadmore">
+   加载更多...
   </view>
   
-  <view wx:if="{{!showMore}}" class="padding flex flex-direction">
+  <view wx:if="{{!showMore}}" class="padding flex flex-direction cu-bar bg-white margin-top margin-bottom">
      没有更多了...
   </view>
 </view>

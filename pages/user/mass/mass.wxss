@@ -1,0 +1,8 @@
+/* pages/user/mass/mass.wxss */
+.list {
+  width: 90%;
+  height: 60rpx;
+  line-height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+}

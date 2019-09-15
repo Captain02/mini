@@ -4,16 +4,17 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    status: Boolean,
     id: Number,
     type: String
   },
-
   /**
    * 组件的初始数据
    */
   data: {
     showMore: true,
-    actData: []
+    actData: [],
+    imgUrl: app.indexApi.ImgUrl
   },
   ready: function () {
     var that = this;
@@ -30,8 +31,13 @@ Component({
    */
   methods: {
     loadActData() {
-      app.indexApi.actComment(244, 1, 5).then(res => {
-        if (res.code == 0) {
+      const id = app.globalData.actId;
+      app.indexApi.actComment(id, 1, 5).then(res => {
+        if (res.code == 0 && res.date.length > 0) {
+          this.setData({
+            actData: res.date
+          })
+        } else {
           this.setData({
             showMore: false
           })
@@ -39,7 +45,7 @@ Component({
       })
     },
     loadNewsData() {
-      app.indexApi.getNewsComment(244, 1, 5).then(res => {
+      app.indexApi.getNewsComment(254, 1, 5).then(res => {
         if (res.code == 0) {
           this.setData({
             showMore: false
@@ -47,9 +53,16 @@ Component({
         }
       })
     },
-    goComment() {
+    goComment(e) {
+      console.log(e)
+      const { actid, id } = e.currentTarget.dataset;
       wx.navigateTo({
-        url: '../../commentview/commentview',
+        url: '../../commentview/commentview?actid=' + actid + '&id=' + id + '&status=' + true,
+      })
+    },
+    goDetail(e) {
+      wx.navigateTo({
+        url: '../../commentview/commentview?status=' + false,
       })
     }
   }

@@ -6,3 +6,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
 } */
+.loadmore {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  margin: 0 auto;
+  border: 1px solid #dfdfdf;
+}

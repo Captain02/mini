@@ -9,6 +9,8 @@ Page({
   data: {
     actId: Number,
     pageCon: {},
+    modalName: "",
+    con: "",
     imgUrl: app.indexApi.ImgUrl
   },
 
@@ -35,6 +37,7 @@ Page({
   onShow: function () {
     const that = this
     let actId = that.data.actId
+    app.globalData.actId = actId;
     app.indexApi.userAcDetail(actId).then(res => {
       if (res.code == 0) {
         if (res.date.deptname == null || res.date.deptname == "") {
@@ -52,7 +55,36 @@ Page({
       console.log(res)
     })
   },
-
+  goDetail() {
+    this.setData({
+      modalName: "DialogModal"
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: ""
+    })
+    if (e.currentTarget.dataset.makestatus) {
+      this.pushCon()
+    }
+  },
+  textareaAInput(e) {
+    this.setData({
+      con: e.detail.value
+    })
+  },
+  // 发布
+  pushCon() {
+    const userid = wx.getStorageSync('userid');
+    const idx = wx.getStorageSync('actid');
+    app.indexApi.addActCommment(userid, 0, this.data.con, idx,0).then(res => {
+        if (res.code == 0) {
+          wx.showToast({
+            title: res.data,
+          })
+        }
+      })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -4,7 +4,7 @@
 class request {
   constructor() {
     this._header = {
-      "Content-Type": "application/json",
+      "Content-Type": "json",
       "Authorization": wx.getStorageSync('token')
     },
     this._headerOld = {

@@ -23,7 +23,7 @@ class agriknow {
   }
   // 用户登录
   userLogin(data) {
-    return this._request.postTwoRequest(this._baseUrl + '/api/sys/login', data).then(res => res.data)
+    return this._request.postTwoRequest(this._baseUrl + '/api/sys/login', data, formHead).then(res => res.data)
   }
 
   // 新闻列表
@@ -39,11 +39,13 @@ class agriknow {
     return this._request.getRequest(this._baseUrl + '/api/sys/refreshToken').then(res => res.data)
   }
   // 社团列表
-  getBaituanList(currPage = 1, pageSize = 10, scale) {
+  getBaituanList(currPage = 1, pageSize = 10, scale, corname, corcollege  ) {
     let data = {
       currPage: currPage,
       pageSize: pageSize,
-      scale: scale
+      scale: scale,
+      corname: corname,
+      corcollege: corcollege
     }
     return this._request.getRequest(this._baseUrl + '/corporation/getListPage', data).then(res => res.data)
   }
@@ -165,9 +167,12 @@ class agriknow {
       topicid,
       repliesuserid
     }
-    return this._request.postTwoRequest(this._baseUrl + '/bbs_like/addReplies', data, formHead).then(res => res.data)
+    return this._request.postTwoRequest(this._baseUrl + '/bbs_like/addReplies', data, {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": wx.getStorageSync('token')
+    }).then(res => res.data)
   }
-  // 活动评论
+  // 活动评论列表
   actComment(topicid, currPage = 1, pageSize = 10) {
     let data = {
       pageSize,
@@ -175,6 +180,16 @@ class agriknow {
       topicid
     }
     return this._request.getRequest(this._baseUrl + '/contention/repliesList', data).then(res => res.data)
+  }
+  // 活动评论详情
+  actCommentDetail(id, topicid, currPage = 1, pageSize = 10) {
+    let data = {
+      id,
+      pageSize,
+      currPage,
+      topicid
+    }
+    return this._request.getRequest(this._baseUrl + '/contention/getRepliesListByid', data).then(res => res.data)
   }
   // 用户发布帖子
   userPush(content, imageid) {
@@ -184,7 +199,10 @@ class agriknow {
       userid: wx.getStorageSync('userid'),
       imageid
     }
-    return this._request.postRequest(this._baseUrl + '/sys/psersion/releaseTopic', data).then(res => res.data)
+    return this._request.postRequest(this._baseUrl + '/sys/psersion/releaseTopic', data, {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": wx.getStorageSync('token')
+    }).then(res => res.data)
   }
   // 保存用户信息
   saveUserInfo(data) {
@@ -211,11 +229,13 @@ class agriknow {
   }
   // 获取用户信息
   getUser() {
-    return this._request.getRequest(this._baseUrl + '/api/getuserInfo', {}).then(res => res.data)
+    return this._request.getRequest(this._baseUrl + '/api/getuserInfo', {},{
+      "Authorization": wx.getStorageSync('token'),
+    } ).then(res => res.data)
   }
 
   // 更新用户信息
-  updateUser(filed,email, mobile, wechar, QQ, college, collegetie, descs, name, username, password) {
+  updateUser(filed, email, mobile, wechar, QQ, college, collegetie, descs, name, username, password) {
     let data = {
       token: wx.getStorageSync('token'),
       user_id: wx.getStorageSync('userid'),
@@ -262,5 +282,14 @@ class agriknow {
     }
     return this._request.getRequest(this._baseUrl + '/sys/comm/getselectes', data).then(res => res.data)
   }
+  // 社团状态
+  getMassStatus(status) {
+    let data = {
+      user_id: wx.getStorageSync('userid'),
+      status: status
+    }
+    return this._request.getRequest(this._baseUrl + '/sys/psersion/getUserCorStatus', data).then(res => res.data)
+  }
+ 
 }
 export default agriknow

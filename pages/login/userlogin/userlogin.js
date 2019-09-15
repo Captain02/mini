@@ -54,12 +54,15 @@ Page({
   loginUser(e) {
     let username = e.detail.value.username;
     let password = e.detail.value.password;
+    const that = this;
     let data = {
       username, password
     }
     app.indexApi.userLogin(data).then(res => {
       if (!res.code) {
         wx.setStorageSync('token', res.token)
+        // 获取个人信息
+        that.getUserInfo()
         wx.showToast({
           title: '登录成功！',
           success: function () {
@@ -75,6 +78,14 @@ Page({
           title: res.msg,
           icon: 'none'
         })
+      }
+    })
+  },
+  // 获取用户信息
+  getUserInfo() {
+    app.indexApi.getUser().then(res => {
+      if (res.code == 0) {
+        wx.setStorageSync('userid', res.user.user_id)
       }
     })
   }

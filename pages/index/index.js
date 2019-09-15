@@ -21,11 +21,6 @@ Page({
       color: 'orange',
       badge: 1,
       name: '争鸣'
-    }, {
-      icon: 'picfill',
-      color: 'yellow',
-      badge: 0,
-      name: '优惠'
     }],
     gridCol: 3,
     skin: false
@@ -57,7 +52,12 @@ Page({
       cardCur: e.detail.current
     })
   },
-  
+  // 跳转搜索页
+  goFind() {
+    wx.navigateTo({
+      url: './findPage/findPage',
+    })
+  },
   // 获取活动列表
   loadActive: function() {
     var that = this;
