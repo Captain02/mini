@@ -26,7 +26,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    // 加载学院专业下拉
+    this.getXueYuan()
   },
 
   /**
@@ -40,10 +41,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that = this;
     // 获取个人信息
-    this.getUserInfo()
-    // 加载学院专业下拉
-    this.getXueYuan()
+    setTimeout(() => {
+      that.getUserInfo()
+    }, 100)
   },
   ChooseImage() {
     var that = this
@@ -150,6 +152,7 @@ Page({
     } = e.detail.value;
 
     app.indexApi.updateUser(
+      that.data.sex,
       that.data.filed,
       email, phone, wx, QQ, that.data.collegeName, that.data.collegetieName, textCon,
       that.data.userInfo.name,

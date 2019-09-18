@@ -35,41 +35,36 @@
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/user/mass/mass" hover-class="none">
-        <text class="cuIcon-github text-grey"></text>
-        <text class="text-grey">社团状态</text>
-      </navigator>
-
-    </view>
-    <!-- <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">参与社团</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content" bindtap="showQrcode">
-        <text class="cuIcon-appreciatefill text-red"></text>
-        <text class="text-grey">活动评论</text>
-      </view>
-    </view>
-    <view class="cu-item arrow">
-      <button class="cu-btn content" open-type="feedback">
-        <text class="cuIcon-writefill text-cyan"></text>
-        <text class="text-grey">优惠福利</text>
-      </button>
-    </view> -->
-    <view class="cu-item arrow">
       <navigator class="content" url="/pages/user/saveinfo/saveinfo" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">个人信息</text>
       </navigator>
     </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/user/mass/mass" hover-class="none">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">社团状态</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+     <navigator class="content" url="/pages/NoticList/NoticList" hover-class="none">
+        <view class="content" bindtap="showQrcode">
+          <text class="cuIcon-appreciatefill text-red"></text>
+          <text class="text-grey">社团通知</text>
+        </view>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" bindtap="personClass">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">个人课表</text>
+      </button>
+    </view>
   </view>
   <view class="cu-tabbar-height"></view>
 </scroll-view>
 
-<view class="cu-modal {{modalName=='DialogModal'?'show':''}}">
+<!-- <view class="cu-modal {{modalName=='DialogModal'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
       <view class="content">提示</view>
@@ -87,4 +82,4 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->

@@ -15,7 +15,8 @@
     "pages/index/newsdetail/newsdetail",
     "pages/index/findPage/findPage",
     "pages/index/pushdetail/pushdetail",
-    "pages/commentview/commentview"
+    "pages/commentview/commentview",
+    "pages/NoticList/NoticList"
   ],
   "tabBar": {
     "color": "#bfbfbf",
@@ -35,8 +36,8 @@
         "text": "百团"
       },
       {
-        "selectedIconPath": "assets/images/quan-sel.png",
-        "iconPath": "assets/images/quan.png",
+        "selectedIconPath": "assets/images/addxz.png",
+        "iconPath": "assets/images/addun.png",
         "pagePath": "pages/add/add",
         "text": "发布"
       },

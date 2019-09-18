@@ -235,21 +235,25 @@ class agriknow {
   }
 
   // 更新用户信息
-  updateUser(filed, email, mobile, wechar, QQ, college, collegetie, descs, name, username, password) {
+  updateUser(gender,filed, email, mobile, wechart, qq, college, collegetie, descs, name, username, password) {
     let data = {
       token: wx.getStorageSync('token'),
       user_id: wx.getStorageSync('userid'),
+      gender,
       filed,
       email,
       mobile,
-      wechar,
-      QQ,
+      wechart,
+      qq,
       college,
       collegetie,
       descs,
       name,
     }
-    return this._request.postRequest(this._baseUrl + '/sys/userinfo/updateuser', data).then(res => res.data)
+    return this._request.postRequest(this._baseUrl + '/sys/userinfo/updateuser', data, {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": wx.getStorageSync('token')
+    }).then(res => res.data)
   }
   // 社团详情
   getSheTuanDetail(idx) {
@@ -290,6 +294,22 @@ class agriknow {
     }
     return this._request.getRequest(this._baseUrl + '/sys/psersion/getUserCorStatus', data).then(res => res.data)
   }
- 
+  // 通知列表
+  getNoticList(currPage, pageSize) {
+    let data = {
+      receiveUserId: parseInt(wx.getStorageSync('userid')),
+      currPage,
+      pageSize
+    }
+    return this._request.getRequest(this._baseUrl + '/sys/notic/list', data).then(res => res.data)
+  }
+  // 通知详情
+  getNoticDetail(noticid) {
+    let data = {
+      receiveUserId: parseInt(wx.getStorageSync('userid')),
+      noticid: parseInt(noticid)
+    }
+    return this._request.getRequest(this._baseUrl + '/sys/notic/info', data).then(res => res.data)
+  }
 }
 export default agriknow

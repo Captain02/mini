@@ -152,5 +152,12 @@ Page({
     wx.navigateTo({
       url: '/pages/Contend/detail/contendetail?actid=' + actid
     })
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '校园百团争鸣', //转发页面的标题
+      path: '/pages/index/index'  //转发页面的路径以及携带的参数
+     //多参数可以这么传
+    }
   }
 })

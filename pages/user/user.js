@@ -24,39 +24,47 @@ Page({
   onShow() {
     // 获取个人信息
     var that = this;
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          that.setData({modalName: ""})
-          app.indexApi.getUser().then(res => {
-            if (res.code == 0) {
-              that.setData({
-                status: true,
-                userInfo: res.user,
-                loginStatus: ''
+    app.indexApi.getUser().then(res => {
+      if (res.code == 0) {
+        that.setData({
+          status: true,
+          userInfo: res.user,
+          loginStatus: ''
+        })
+      } else {
+        wx.showToast({
+          title: "请您重新登录",
+          icon: 'none',
+          success: function () {
+            setTimeout(function () {
+              wx.navigateTo({
+                url: '../login/userlogin/userlogin',
               })
-            } else {
-              wx.showToast({
-                title: "请您重新登录",
-                icon: 'none',
-                success: function() {
-                  setTimeout(function() {
-                    wx.navigateTo({
-                      url: '../login/userlogin/userlogin',
-                    })
-                  }, 800)
-                }
-              })
-            }
-          })
-        } else {
-          that.setData({
-            modalName: "DialogModal"
-          })
-        }
+            }, 500)
+          }
+        })
       }
     })
+    // wx.getSetting({
+    //   success: function (res) {
+    //     if (res.authSetting['scope.userInfo']) {
+    //       that.setData({modalName: ""})
 
+    //     } else {
+    //       that.setData({
+    //         modalName: "DialogModal"
+    //       })
+    //     }
+    //   }
+    // })
+
+  },
+
+  personClass() {
+    wx.showToast({
+      title: '暂无开放,敬请期待',
+      icon: 'none'
+    })
   },
   NavChange(e) {
     this.setData({

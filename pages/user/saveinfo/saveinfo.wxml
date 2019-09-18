@@ -57,7 +57,7 @@
     <input name="QQ"  value="{{userInfo.qq}}"></input>
   </view>
   <view class="cu-form-group margin-top">
-    <textarea maxlength="-1" name="textCon" disabled="{{modalName!=null}}" placeholder="想说点什么..."></textarea>
+    <textarea value="{{userInfo.descs}}" maxlength="-1" name="textCon"  placeholder="想说点什么..."></textarea>
   </view>
 
   <view class="padding flex flex-direction ">
