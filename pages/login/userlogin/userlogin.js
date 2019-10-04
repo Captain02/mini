@@ -25,7 +25,6 @@ Page({
     })
   },
   pushCon(e) {
-    console.log(e)
     let username = e.detail.value.username
     let name = e.detail.value.name
     let password = e.detail.value.password
@@ -33,6 +32,7 @@ Page({
     app.indexApi.bindUser(username, name, password, phone, this.data.sex).then(res => {
       if (!res.code) {
         wx.setStorageSync('token', res.token)
+        wx.setStorageSync('userid', res.user_id)
         wx.showToast({
           title: '注册成功！',
           success: function() {

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "发布详情"
+  "navigationBarTitleText": "发布详情",
+  "usingComponents": {
+    "comment": "../../comment/comment"
+  }
 }

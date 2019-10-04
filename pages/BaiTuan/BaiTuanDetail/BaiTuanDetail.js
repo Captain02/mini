@@ -53,6 +53,15 @@ Page({
   onHide: function () {
 
   },
+  playVideo(event) {
+    console.log(event)
+  },
+  videoErrorCallback(e) {
+    wx.showToast({
+      title: "暂无视频..",
+      icon: 'none'
+    })
+  },
   addJob() {
     let id = this.data.id;
     app.indexApi.addSheTuan(id, this.data.pageobj.deptid, this.data.pageobj.id).then(res => {

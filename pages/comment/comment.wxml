@@ -26,3 +26,31 @@
   </view>
 </view>
 
+<view class="cu-list menu-avatar comment solids-top" wx:if="{{showPerMore}}">
+  <view class="cu-item" wx:for="{{personData}}" wx:key="index">
+    <view class="cu-avatar round" 
+    style='background-image:url({{imgUrl}}{{item.repliceuser[0].headpath}});'></view>
+    <view class="content">
+      <view class="text-grey">{{item.repliceuser[0].name}}</view>
+      <view class="text-gray text-content text-df">
+        {{item.reolicecontent}}
+      </view>
+      <view class="bg-grey padding-sm radius margin-top-sm  text-sm" 
+      wx:key="index" wx:for="{{item.chiled}}" wx:for-item="cld">
+        <view class="flex">
+          <view>{{cld.userinfo[0].name}}:</view>
+          <view class="flex-sub" style="margin-left:20rpx">{{cld.reolicecontent}}</view>
+        </view>
+      </view>
+      <view class="margin-top-sm flex justify-between">
+        <view class="text-gray text-df">{{item.createtime}}</view>
+        <view>
+          <text class="cuIcon-appreciatefill text-red"></text>
+          <text bindtap="goPerson" data-id="{{item.id}}"
+          class="cuIcon-messagefill text-gray margin-left-sm"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

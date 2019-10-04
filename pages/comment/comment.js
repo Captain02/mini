@@ -13,8 +13,10 @@ Component({
    */
   data: {
     showMore: true,
+    showPerMore: true,
     actData: [],
-    imgUrl: app.indexApi.ImgUrl
+    imgUrl: app.indexApi.ImgUrl,
+    personData: []
   },
   ready: function () {
     var that = this;
@@ -45,10 +47,15 @@ Component({
       })
     },
     loadNewsData() {
-      app.indexApi.getNewsComment(254, 1, 5).then(res => {
-        if (res.code == 0) {
+      const id = app.globalData.personId;
+      app.indexApi.getPersonComment(id, 1, 5).then(res => {
+        if (res.code == 0 && res.data.length > 0) {
           this.setData({
-            showMore: false
+            personData: res.data
+          })
+        } else {
+          this.setData({
+            showPerMore: false
           })
         }
       })
@@ -63,6 +70,11 @@ Component({
     goDetail(e) {
       wx.navigateTo({
         url: '../../commentview/commentview?status=' + false,
+      })
+    },
+    goPerson(e) {
+      wx.navigateTo({
+        url: '../../commentview/commentview',
       })
     }
   }

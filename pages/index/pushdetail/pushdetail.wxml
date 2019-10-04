@@ -5,7 +5,7 @@
   <view class="card-toptext">{{userInfo.name}}</view>
   <view class="card-info">
     <view class="card-header">
-      <image src="{{userInfo.filepath}}"></image>
+      <image src="{{imgUrl}}{{userInfo.filepath}}"></image>
     </view>
     <view class="card-text">{{userInfo.userinfo[0].college}}</view>
   </view>
@@ -16,4 +16,34 @@
 
 <view class="card-list">
   <template is="indexCard"  data="{{...userInfo,imgUrl}}"></template>
+</view>
+<!--评论-->
+<comment type="push" id="{{personId}}"></comment>
+
+<view class="padding text-center">
+  <view class="padding-xl radius shadow-warp bg-white margin-top">
+    <view class=" flex flex-direction">
+      <text>快去评论吧...</text>
+      <text style="font-size:24rpx;color:red" bindtap="goDetail">评论</text>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-modal {{modalName=='DialogModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">评论</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+		  <textarea maxlength="-1" bindinput="textareaAInput" placeholder="留下您的脚印吧..."></textarea>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-green solid-left" data-makeStatus="{{false}}"  bindtap="hideModal">取消</view>
+      <view class="action margin-0 flex-sub  solid-left" data-makeStatus="{{true}}" bindtap="hideModal">确定</view>
+    </view>
+  </view>
 </view>

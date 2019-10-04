@@ -16,7 +16,15 @@ Page({
   onShow: function () {
     // 初始化页码
     page = 1;
-    this.loadData(1, 10, 'istrue');
+    var that = this
+    wx.showLoading({
+      title: '请稍等..',
+      success: function() {
+        setTimeout(() => {
+          that.loadData(1, 10, 'istrue');
+        }, 300)
+      }
+    })
   },
   loadData(page, size, scale) {
     var that = this;
@@ -32,6 +40,7 @@ Page({
           showMore: true,
           toggleDelay: true
         })
+        wx.hideLoading()
       } else {
         that.setData({
           showMore: false

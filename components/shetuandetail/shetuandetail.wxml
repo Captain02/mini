@@ -1,9 +1,10 @@
 <import src="../../pages/wxParse/wxParse.wxml" />
 <template name="indexCard">
-  <view class="cu-card case isCard" data-userid="{{id}}" bindtap="gocard">
+  <view class="cu-card case isCard" data-userid="{{id}}">
     <view class="cu-item shadow">
       <view class="image">
-        <video style="width:100%" src="{{imgUrl}}{{videofile}}"></video>
+        <video wx:if="{{videofile}}" 
+        controls  binderror="videoErrorCallback" style="width:100%" src="{{imgUrl}}{{videofile}}"></video>
         <view class="cu-bar bg-shadeBottom">
           <text class="text-cut">{{content}}</text>
         </view>

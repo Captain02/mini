@@ -6,6 +6,7 @@ App({
   // 首页api
   indexApi: new agriknow(),
   globalData: {
-    actId: null
+    actId: null,
+    personId: null
   }
 })

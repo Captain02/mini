@@ -47,7 +47,7 @@ Page({
   },
   // 获取详细评论
   getCommentDetail () {
-    app.indexApi.actCommentDetail(this.data.loadObj.id, this.data.loadObj.actid).then(res => {
+    app.indexApi.actCommentDetail(this.data.loadObj.id, this.data.loadObj.actid, 0).then(res => {
       if (res.code == 0) {
         this.setData({
           itemCon: res.date[0]
@@ -124,7 +124,7 @@ Page({
     const userid = wx.getStorageSync('userid');
     const idx = wx.getStorageSync('actid');
     app.indexApi.addActCommment(userid, that.data.loadObj.id, that.data.textCon, idx, 
-      that.data.loadObj.actid).then(res => {
+      that.data.userInfo.user_id).then(res => {
         if (res.code == 0) {
           // 获取子集
           that.getCommentDetail()

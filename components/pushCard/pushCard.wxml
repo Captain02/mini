@@ -17,7 +17,7 @@
             <view class="text-gray text-sm flex justify-between">
               {{userinfo[0].college}}
               <view class="text-gray text-sm">
-                <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{likes[0].num}}
+                <text class="cuIcon-appreciatefill margin-lr-xs" data-id="{{id}}" bindtap="addPerLike"></text> {{likes[0].num}}
                 <text class="cuIcon-messagefill margin-lr-xs"></text> {{replesnum[0].num}}
               </view>
             </view>

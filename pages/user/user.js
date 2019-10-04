@@ -32,15 +32,17 @@ Page({
           loginStatus: ''
         })
       } else {
-        wx.showToast({
-          title: "请您重新登录",
-          icon: 'none',
-          success: function () {
-            setTimeout(function () {
-              wx.navigateTo({
-                url: '../login/userlogin/userlogin',
-              })
-            }, 500)
+        wx.showModal({
+          title: '未登录',
+          content: '请您进行注册/登陆',
+          success: function(res) {
+            if (res.confirm) {
+              setTimeout(function () {
+                wx.navigateTo({
+                  url: '../login/userlogin/userlogin',
+                })
+              }, 500)
+            }
           }
         })
       }

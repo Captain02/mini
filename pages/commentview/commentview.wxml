@@ -1,3 +1,4 @@
+<!--活动评论-->
 <view wx:if="{{status}}" class="cu-list menu-avatar comment solids-top" >
   <view class="cu-item" >
     <view class="cu-avatar round" 
@@ -25,8 +26,32 @@
   </view>
 </view>
 
-<!--评论-->
-  <!-- <comment type="act" status="false" id="{{loadObj.actid}}"></comment> -->
+<!--朋友圈评论-->
+<!-- <view  class="cu-list menu-avatar comment solids-top" >
+  <view class="cu-item" >
+    <view class="cu-avatar round" 
+    style='background-image:url({{imgUrl}}{{itemCon.repliceuser[0].headpath}});'></view>
+    <view class="content">
+      <view class="text-grey">{{itemCon.repliceuser[0].name}}</view>
+      <view class="text-gray text-content text-df">
+        {{itemCon.repliescontent}}
+      </view>
+      <view class="bg-grey padding-sm radius margin-top-sm  text-sm" wx:for="{{itemCon.child}}" wx:for-item="child">
+        <view class="flex">
+          <view>{{child.repliceuser[0].name}}:</view>
+          <view class="flex-sub" style="margin-left:20rpx">{{child.reolicecontent}}</view>
+        </view>
+      </view>
+      <view class="margin-top-sm flex justify-between">
+        <view class="text-gray text-df">{{itemCon.createtime}}</view>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+
+
+
 
 
 <view class="box">

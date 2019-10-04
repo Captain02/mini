@@ -57,8 +57,8 @@
 		  <textarea maxlength="-1" bindinput="textareaAInput" placeholder="留下您的脚印吧..."></textarea>
     </view>
     <view class="cu-bar bg-white">
-      <view class="action margin-0 flex-sub text-green solid-left" data-makeStatus="false"  bindtap="hideModal">取消</view>
-      <view class="action margin-0 flex-sub  solid-left" data-makeStatus="true" bindtap="hideModal">确定</view>
+      <view class="action margin-0 flex-sub text-green solid-left" data-makeStatus="{{false}}"  bindtap="hideModal">取消</view>
+      <view class="action margin-0 flex-sub  solid-left" data-makeStatus="{{true}}" bindtap="hideModal">确定</view>
     </view>
   </view>
 </view>

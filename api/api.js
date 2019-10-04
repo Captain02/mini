@@ -137,7 +137,51 @@ class agriknow {
     }
     return this._request.getRequest(this._baseUrl + '/sys/psersion/getDetailed', data).then(res => res.data)
   }
-
+  // 获取朋友圈评论列表
+  getPersonComment(topicid, currPage = 1, pageSize = 10) {
+    let data = {
+      pageSize,
+      currPage,
+      topicid
+    }
+    return this._request.getRequest(this._baseUrl + '/sys/psersion/getReplies', data).then(res => res.data)
+  }
+  // 用户发布帖子
+  userPush(content, imageid) {
+    let data = {
+      token: wx.getStorageSync('token'),
+      content,
+      userid: wx.getStorageSync('userid'),
+      imageid
+    }
+    return this._request.postRequest(this._baseUrl + '/sys/psersion/releaseTopic', data, {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": wx.getStorageSync('token')
+    }).then(res => res.data)
+  }
+  // 朋友圈发布评论
+  personComment(userid, parentid, reolicecontent, topicid, repliceid) {
+    let data = {
+      userid: wx.getStorageSync('userid'),
+      parentid,
+      reolicecontent,
+      topicid,
+      repliceid
+    }
+    return this._request.postRequest(this._baseUrl + '/sys/psersion/replies', data, {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": wx.getStorageSync('token')
+    }).then(res => res.data)
+  }
+  // 朋友圈点赞
+  addLike(topicid, type) {
+    let data = {
+      userid: wx.getStorageSync('userid'),
+      topicid,
+      type
+    }
+    return this._request.getRequest(this._baseUrl + '/sys/psersion/likepersionTopic', data).then(res => res.data)
+  }
   // 社团活动列表
   userActList(pageSize, currPage) {
     let data = {
@@ -172,12 +216,15 @@ class agriknow {
       "Authorization": wx.getStorageSync('token')
     }).then(res => res.data)
   }
+
+
   // 活动评论列表
-  actComment(topicid, currPage = 1, pageSize = 10) {
+  actComment(topicid, currPage = 1, pageSize = 10, parentid=0 ) {
     let data = {
       pageSize,
       currPage,
-      topicid
+      topicid,
+      parentid
     }
     return this._request.getRequest(this._baseUrl + '/contention/repliesList', data).then(res => res.data)
   }
@@ -191,19 +238,7 @@ class agriknow {
     }
     return this._request.getRequest(this._baseUrl + '/contention/getRepliesListByid', data).then(res => res.data)
   }
-  // 用户发布帖子
-  userPush(content, imageid) {
-    let data = {
-      token: wx.getStorageSync('token'),
-      content,
-      userid: wx.getStorageSync('userid'),
-      imageid
-    }
-    return this._request.postRequest(this._baseUrl + '/sys/psersion/releaseTopic', data, {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": wx.getStorageSync('token')
-    }).then(res => res.data)
-  }
+
   // 保存用户信息
   saveUserInfo(data) {
     const {
@@ -225,7 +260,10 @@ class agriknow {
       mobile,
       gender
     }
-    return this._request.postRequest(this._baseUrl + '/sys/userinfo/addPersion', data).then(res => res.data)
+    return this._request.postRequest(this._baseUrl + '/sys/userinfo/addPersion', data, {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": wx.getStorageSync('token')
+    }).then(res => res.data)
   }
   // 获取用户信息
   getUser() {
